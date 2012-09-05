@@ -1,0 +1,45 @@
+<%- model_class = Cliente -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @cliente.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sobrenome) %>:</strong></dt>
+  <dd><%= @cliente.sobrenome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @cliente.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
+  <dd><%= @cliente.telefone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:celular) %>:</strong></dt>
+  <dd><%= @cliente.celular %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rua) %>:</strong></dt>
+  <dd><%= @cliente.rua %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:numero) %>:</strong></dt>
+  <dd><%= @cliente.numero %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:complemento) %>:</strong></dt>
+  <dd><%= @cliente.complemento %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bairro) %>:</strong></dt>
+  <dd><%= @cliente.bairro %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cidade) %>:</strong></dt>
+  <dd><%= @cliente.cidade %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cep) %>:</strong></dt>
+  <dd><%= @cliente.cep %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:estado) %>:</strong></dt>
+  <dd><%= @cliente.estado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pais) %>:</strong></dt>
+  <dd><%= @cliente.pais %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_clientes_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_cliente_path(@cliente), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              admin_cliente_path(@cliente),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,45 @@
+<%- model_class = Cliente -%>
+<div class="page-header">
+	<form class="navbar-search pull-right" action="">
+		<input type="text" class="search-query" name="q" placeholder="Procurar" value="<%= @pesquisa %>">
+	</form>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:sobrenome) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:telefone) %></th>
+      <th><%= model_class.human_attribute_name(:celular) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= link_to cliente.id, admin_cliente_path(cliente) %></td>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.sobrenome %></td>
+        <td><%= cliente.email %></td>
+        <td><%= cliente.telefone %></td>
+        <td><%= cliente.celular %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_cliente_path(cliente), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_cliente_path(cliente),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_cliente_path,
+            :class => 'btn btn-primary' %>
