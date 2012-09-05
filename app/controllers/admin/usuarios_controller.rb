@@ -46,7 +46,7 @@ class Admin::UsuariosController < ApplicationController
 
         respond_to do |format|
             if @usuario.save
-                format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+                format.html { redirect_to ([:admin, @usuario]), notice: 'Usuario was successfully created.' }
                 format.json { render json: @usuario, status: :created, location: @usuario }
             else
                 format.html { render action: "new" }
@@ -62,7 +62,7 @@ class Admin::UsuariosController < ApplicationController
 
         respond_to do |format|
             if @usuario.update_attributes(params[:usuario])
-                format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
+                format.html { redirect_to ([:admin, @usuario]), notice: 'Usuario was successfully updated.' }
                 format.json { head :no_content }
             else
                 format.html { render action: "edit" }
@@ -78,7 +78,7 @@ class Admin::UsuariosController < ApplicationController
         @usuario.destroy
 
         respond_to do |format|
-            format.html { redirect_to usuarios_url }
+            format.html { redirect_to admin_usuarios_url }
             format.json { head :no_content }
         end
     end

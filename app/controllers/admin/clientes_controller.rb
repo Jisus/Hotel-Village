@@ -45,7 +45,7 @@ class Admin::ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
+        format.html { redirect_to ([:admin, @cliente]), notice: 'Cliente was successfully created.' }
         format.json { render json: @cliente, status: :created, location: @cliente }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class Admin::ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.update_attributes(params[:cliente])
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully updated.' }
+        format.html { redirect_to ([:admin, @cliente]), notice: 'Cliente was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +77,7 @@ class Admin::ClientesController < ApplicationController
     @cliente.destroy
 
     respond_to do |format|
-      format.html { redirect_to clientes_url }
+      format.html { redirect_to admin_clientes_url }
       format.json { head :no_content }
     end
   end
