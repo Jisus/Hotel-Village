@@ -12,21 +12,29 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :senha, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :senha, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :tipo, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :tipo, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+	<% if params[:action] == 'update' || params[:action] == 'edit' %>
+  <div class="control-group">
+    <%= f.label :current_password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :current_password, :class => 'text_field' %>
+    </div>
+  </div>
+	<% end %>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off", :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
     </div>
   </div>
 

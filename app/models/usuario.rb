@@ -5,9 +5,11 @@ class Usuario < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  attr_accessor :password, :password_confirmation, :current_password
+  
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, 
-                  :nome, :senha, :sobrenome, :tipo, :email
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+                  :nome, :senha, :sobrenome, :tipo, :email, :current_password
   
   
   def self.search(search)

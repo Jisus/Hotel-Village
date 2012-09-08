@@ -1,0 +1,39 @@
+<%= form_for [:admin, @quarto], :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :solterio, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :solterio, :class => 'number_field', min: '0' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :casal, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :casal, :class => 'number_field', min: '0' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :desc, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :desc, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :diaria, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :diaria, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :flags, :class => 'control-label' %>
+		<div class="controls">
+	<% for flag in Flag.find(:all) %>  
+	      <%= check_box_tag "quarto[flag_ids][]", flag.id, @quarto.flags.include?(flag) %>  
+	      <%= flag.nome %>
+	<% end %>  
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_quartos_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</a>
+<%= link_to "Hotel Village", admin_home_path, class: "brand" %>
+<div class="nav-collapse">
+	<ul class="nav">
+		<li><%= link_to "Usuários", admin_usuarios_path %></li>
+		<li><%= link_to "Clientes", admin_clientes_path %></li>
+		<li class="dropdown">
+			<a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Quartos<b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				<li><%= link_to "Quartos", admin_quartos_path %></li>
+				<li><%= link_to "Flags", admin_flags_path %></li>
+			</ul>
+		</li>
+		<li class="dropdown">
+			<a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Reservas<b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				<li><%= link_to "Reservas" %></li>
+				<li><%= link_to "Pagamento" %></li>
+			</ul>
+		</li>
+		<li><%= link_to "Produtos" %></li>
+	</ul>
+	<ul class="nav pull-right">
+		<li><%= link_to "Sair", destroy_usuario_session_path %></li>
+	</ul>
+</div>

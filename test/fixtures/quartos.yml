@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  solterio: 1
+  casal: 1
+  desc: MyString
+  flag_id: 1
+  diaria: MyString
+
+two:
+  solterio: 1
+  casal: 1
+  desc: MyString
+  flag_id: 1
+  diaria: MyString

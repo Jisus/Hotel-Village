@@ -1,10 +1,11 @@
 Hotel::Application.routes.draw do
 
-  
   namespace :admin do
     
     resources :clientes
     resources :usuarios
+    resources :flags
+    resources :quartos
     
   end
     
