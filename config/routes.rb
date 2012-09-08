@@ -1,11 +1,22 @@
 Hotel::Application.routes.draw do
 
+  
   namespace :admin do
     
     resources :clientes
     resources :usuarios
     
   end
+    
+  devise_for :usuarios, :skip => [:sessions]
+  as :usuario do
+    get 'admin/login' => 'admin/sessions#new', :as => :new_usuario_session
+    post 'admin/login' => 'admin/sessions#create', :as => :usuario_session
+    get 'admin/logout' => 'admin/sessions#destroy', :as => :destroy_usuario_session,
+      :via => Devise.mappings[:usuario].sign_out_via
+  end
+  
+  match 'admin/' => 'admin/clientes#index', :as => :admin_home  
   
   match ':controller(/:action(/:id))(.:format)'
   

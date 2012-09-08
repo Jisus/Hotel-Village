@@ -1,7 +1,14 @@
 class Usuario < ActiveRecord::Base
-  attr_accessible :nome, :senha, :sobrenome, :tipo, :email
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+                  :nome, :senha, :sobrenome, :tipo, :email
   
-  validates_presence_of :nome
   
   def self.search(search)
     if search
