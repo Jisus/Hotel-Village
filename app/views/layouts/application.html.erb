@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
+		<% if usuario_signed_in? %>
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
@@ -35,6 +36,7 @@
 				</div>
 			</div>
 		</div>
+		<% end %>
 		<div class="container">
 			<div class="row">
 				<div class="span12">
