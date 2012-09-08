@@ -20,61 +20,61 @@
   <div class="control-group">
     <%= f.label :telefone, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :telefone, :class => 'text_field' %>
+      <%= f.text_field :telefone, :class => 'text_field phone' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :celular, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :celular, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :rua, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :rua, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :numero, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :numero, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :complemento, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :complemento, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :bairro, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :bairro, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cidade, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cidade, :class => 'text_field' %>
+      <%= f.text_field :celular, :class => 'text_field phone' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :cep, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :cep, :class => 'text_field' %>
+      <%= f.text_field :cep, :class => 'text_field cep', onchange: 'carregaEndereco(this)' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :rua, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :rua, :class => 'text_field rua' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :numero, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :numero, :class => 'text_field numero' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :complemento, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :complemento, :class => 'text_field complemento' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bairro, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bairro, :class => 'text_field bairro' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cidade, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cidade, :class => 'text_field cidade' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :estado, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :estado, :class => 'text_field' %>
+      <%= f.text_field :estado, :class => 'text_field estado' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :pais, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :pais, :class => 'text_field' %>
+      <%= f.text_field :pais, :class => 'text_field pais' %>
     </div>
   </div>
 

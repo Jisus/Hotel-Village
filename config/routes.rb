@@ -1,5 +1,4 @@
 Hotel::Application.routes.draw do
-    
 
   namespace :admin do
     
@@ -8,7 +7,7 @@ Hotel::Application.routes.draw do
     
   end
   
-  match 'admin' => 'admin/clientes#index'
+  match ':controller(/:action(/:id))(.:format)'
   
   root :to => 'admin/clientes#index'
   

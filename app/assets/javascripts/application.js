@@ -12,5 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.maskedinput-1.3.min
 //= require twitter/bootstrap
 //= require_tree .
+
+jQuery(function($){
+   $(".date").mask("99/99/9999");
+   $(".phone").mask("(99) 9999-9999");
+   $(".cpf").mask("999.999.999-99");
+   $(".cep").mask("99999-999");
+});
+
+function carregaEndereco(input) {    
+   // com jquery ficaria mais ou menos assim:  
+   $.getJSON("/system/busca_cep?cep=" + input.value, function (data) {  
+		 $('.rua').val(data[0]+' '+data[1]);
+		 $('.bairro').val(data[2]);
+		 $('.cidade').val(data[3]);
+		 $('.estado').val(data[4]);
+		 $('.pais').val('Brasil');
+		 $('.numero').focus();
+   }).error(function(data){
+		 console.log(data);
+   });
+}  
