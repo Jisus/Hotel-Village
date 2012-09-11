@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  desc: MyString
+  valor: 9.99
+
+two:
+  nome: MyString
+  desc: MyString
+  valor: 9.99

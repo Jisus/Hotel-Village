@@ -2,7 +2,8 @@ class Admin::QuartosController < Admin::ApplicationController
   # GET /quartos
   # GET /quartos.json
   def index
-    @quartos = Quarto.all
+    @pesquisa = params[:q]
+    @quartos = Quarto.search(@pesquisa)
 
     respond_to do |format|
       format.html # index.html.erb

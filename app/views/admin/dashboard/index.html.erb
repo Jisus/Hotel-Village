@@ -1,0 +1,67 @@
+<div class="hero-unit">
+	<h1>
+		Bem vindo!
+	</h1>
+	<p>
+		Painel Administrativo 
+	</p>
+</div>
+
+<div class="well summary">
+	<ul>
+		<li>
+			<a href="<%= admin_clientes_url %>"><span class="count"><%= @t_clientes %></span> Clientes</a>
+		</li>
+		<li>
+			<a href="#"><span class="count">X</span> Reservas</a>
+		</li>
+		<li>
+			<a href="#"><span class="count">X</span> Reservas Ativas</a>
+		</li>
+		<li class="last">
+			<a href="<%= admin_produtos_url %>"><span class="count"><%= @t_produtos %></span> Produtos</a>
+		</li>
+	</ul>
+</div>
+
+<h2>Últimas Reservas</h2>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>
+				Quarto
+			</th>
+			<th>
+				Cliente
+			</th>
+			<th>
+				Data da Reserva
+			</th>
+			<th>
+				Data do Registro
+			</th>
+			<th>
+				View
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				Nike.com Redesign
+			</td>
+			<td>
+				Monsters Inc
+			</td>
+			<td>
+				New Task
+			</td>
+			<td>
+				4 days ago
+			</td>
+			<td>
+				<a href="#" class="view-link">View</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

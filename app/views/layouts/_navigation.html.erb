@@ -19,10 +19,10 @@
 			<a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Reservas<b class="caret"></b></a>
 			<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 				<li><%= link_to "Reservas" %></li>
-				<li><%= link_to "Pagamento" %></li>
+				<li><%= link_to "Fechamento da Reserva" %></li>
 			</ul>
 		</li>
-		<li><%= link_to "Produtos" %></li>
+		<li><%= link_to "Produtos", admin_produtos_path %></li>
 	</ul>
 	<ul class="nav pull-right">
 		<li><%= link_to "Sair", destroy_usuario_session_path %></li>

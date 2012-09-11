@@ -1,7 +1,8 @@
 Hotel::Application.routes.draw do
 
   namespace :admin do
-    
+
+    resources :produtos
     resources :clientes
     resources :usuarios
     resources :flags
@@ -10,6 +11,7 @@ Hotel::Application.routes.draw do
   end
     
   devise_for :usuarios, :skip => [:sessions]
+  
   as :usuario do
     get 'admin/login' => 'admin/sessions#new', :as => :new_usuario_session
     post 'admin/login' => 'admin/sessions#create', :as => :usuario_session
@@ -17,11 +19,11 @@ Hotel::Application.routes.draw do
       :via => Devise.mappings[:usuario].sign_out_via
   end
   
-  match 'admin/' => 'admin/clientes#index', :as => :admin_home  
+  match 'admin/' => 'admin/dashboard#index', :as => :admin_home
   
   match ':controller(/:action(/:id))(.:format)'
   
-  root :to => 'admin/clientes#index'
+  root :to => 'admin/dashboard#index'
   
     
   # The priority is based upon order of creation:

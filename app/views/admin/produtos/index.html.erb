@@ -1,0 +1,41 @@
+<%- model_class = Produto -%>
+<div class="page-header">
+	<form class="navbar-search pull-right" action="">
+		<input type="text" class="search-query" name="q" placeholder="Procurar" value="<%= @pesquisa %>">
+	</form>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:desc) %></th>
+      <th><%= model_class.human_attribute_name(:valor) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= link_to produto.id, admin_produto_path(produto) %></td>
+        <td><%= produto.nome %></td>
+        <td><%= produto.desc %></td>
+        <td><%= produto.valor.real.reais_formatado %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_produto_path(produto), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_produto_path(produto),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_produto_path,
+            :class => 'btn btn-primary' %>
