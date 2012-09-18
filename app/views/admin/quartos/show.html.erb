@@ -4,14 +4,14 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:solterio) %>:</strong></dt>
-  <dd><%= @quarto.solterio %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:casal) %>:</strong></dt>
-  <dd><%= @quarto.casal %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tipos_quarto) %>:</strong></dt>
+  <dd><%= @quarto.tipos_quarto.nome %></dd>
   <dt><strong><%= model_class.human_attribute_name(:desc) %>:</strong></dt>
-  <dd><%= @quarto.desc %></dd
+  <dd><%= @quarto.desc %></dd>
   <dt><strong><%= model_class.human_attribute_name(:diaria) %>:</strong></dt>
-  <dd><%= @quarto.diaria %></dd>
+  <dd><%= @quarto.diaria.reais_formatado %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:imagem) %>:</strong></dt>
+  <dd><%= image_tag @quarto.imagem.url(:medium) %></dd>
 </dl>
 
 <div class="form-actions">

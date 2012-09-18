@@ -1,0 +1,40 @@
+<%- model_class = TiposQuarto -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:cama_solteiro) %></th>
+      <th><%= model_class.human_attribute_name(:cama_casal) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tipos_quartos.each do |tipos_quarto| %>
+      <tr>
+        <td><%= link_to tipos_quarto.id, admin_tipos_quarto_path(tipos_quarto) %></td>
+        <td><%= tipos_quarto.nome %></td>
+        <td><%= tipos_quarto.cama_solteiro %></td>
+        <td><%= tipos_quarto.cama_casal %></td>
+        <td><%=l tipos_quarto.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_tipos_quarto_path(tipos_quarto), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_tipos_quarto_path(tipos_quarto),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_tipos_quarto_path,
+            :class => 'btn btn-primary' %>

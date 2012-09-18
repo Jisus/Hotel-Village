@@ -1,5 +1,6 @@
 Hotel::Application.routes.draw do
 
+
   namespace :admin do
 
     resources :produtos
@@ -7,6 +8,7 @@ Hotel::Application.routes.draw do
     resources :usuarios
     resources :flags
     resources :quartos
+    resources :tipos_quartos
     
   end
     
@@ -16,7 +18,7 @@ Hotel::Application.routes.draw do
     get 'admin/login' => 'admin/sessions#new', :as => :new_usuario_session
     post 'admin/login' => 'admin/sessions#create', :as => :usuario_session
     get 'admin/logout' => 'admin/sessions#destroy', :as => :destroy_usuario_session,
-      :via => Devise.mappings[:usuario].sign_out_via
+    :via => Devise.mappings[:usuario].sign_out_via
   end
   
   match 'admin/' => 'admin/dashboard#index', :as => :admin_home

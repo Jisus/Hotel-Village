@@ -6,45 +6,64 @@
 	<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th><%= model_class.human_attribute_name(:id) %></th>
-			<th><%= model_class.human_attribute_name(:solterio) %></th>
-			<th><%= model_class.human_attribute_name(:casal) %></th>
-			<th><%= model_class.human_attribute_name(:desc) %></th>
-			<th><%= model_class.human_attribute_name(:diaria) %></th>
-			<th><%= model_class.human_attribute_name(:flags_id) %></th>
-			<th><%=t '.actions', :default => t("helpers.actions") %></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @quartos.each do |quarto| %>
-		<tr>
-			<td><%= link_to quarto.id, admin_quarto_path(quarto) %></td>
-			<td><%= quarto.solterio %></td>
-			<td><%= quarto.casal %></td>
-			<td><%= quarto.desc %></td>
-			<td><%= quarto.diaria %></td>
-			<td>
-				<% for flag in Flag.find(:all) %> 
-				<%= quarto.flags.include?(flag) ? flag.nome : nil %>
-				<%= quarto.flags.include?(flag) && flag != quarto.flags.last ? ', ' : nil %>
-				<% end %>  
-			</td>
-			<td>
-				<%= link_to t('.edit', :default => t("helpers.links.edit")),
-				edit_admin_quarto_path(quarto), :class => 'btn btn-mini' %>
-				<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-				admin_quarto_path(quarto),
-				:method => :delete,
-				:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-				:class => 'btn btn-mini btn-danger' %>
-			</td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="quartos">
+	<% @quartos.each do |quarto| %>
+	<div class="quarto">
+		<div class="bg"></div>
+		<div class="id">COD: <%= quarto.id %></div>
+		<div class="tipo"><%= quarto.tipos_quarto.nome %></div>
+		<div class="diaria"><%= quarto.diaria.reais_formatado %></div>
+		<div class="flags">
+			<% for flag in Flag.find(:all) %> 
+			<%= quarto.flags.include?(flag) ? flag.nome : nil %>
+			<%= quarto.flags.include?(flag) && flag != quarto.flags.last ? ', ' : nil %>
+			<% end %>  
+		</div>
+		<%= link_to image_tag(quarto.imagem.url(:medium)), admin_quarto_path(quarto) %>
+	</div>
+	<% end %>
+</div>
+
+<!-- >
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th><%= model_class.human_attribute_name(:id) %></th>
+				<th><%= model_class.human_attribute_name(:tipos_quarto) %></th>
+				<th><%= model_class.human_attribute_name(:desc) %></th>
+				<th><%= model_class.human_attribute_name(:diaria) %></th>
+				<th><%= model_class.human_attribute_name(:flags_id) %></th>
+				<th><%=t '.actions', :default => t("helpers.actions") %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @quartos.each do |quarto| %>
+			<tr>
+				<td><%= link_to quarto.id, admin_quarto_path(quarto) %></td>
+				<td><%= quarto.tipos_quarto.nome %></td>
+				<td><%= quarto.desc %></td>
+				<td><%= quarto.diaria.reais_formatado %></td>
+				<td>
+					<% for flag in Flag.find(:all) %> 
+					<%= quarto.flags.include?(flag) ? flag.nome : nil %>
+					<%= quarto.flags.include?(flag) && flag != quarto.flags.last ? ', ' : nil %>
+					<% end %>  
+				</td>
+				<td>
+					<%= link_to t('.edit', :default => t("helpers.links.edit")),
+					edit_admin_quarto_path(quarto), :class => 'btn btn-mini' %>
+					<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+					admin_quarto_path(quarto),
+					:method => :delete,
+					:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+					:class => 'btn btn-mini btn-danger' %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+-->
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
 new_admin_quarto_path,

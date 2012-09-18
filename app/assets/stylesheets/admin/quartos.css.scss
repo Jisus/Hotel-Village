@@ -1,3 +1,12 @@
 // Place all the styles related to the quartos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.quartos{display:table; margin-bottom: 20px}
+.quarto{float:left; margin: 0 5px 5px; position:relative;border: 1px solid #EEE;}
+.quarto .bg{position: absolute;background: white;height: 70px;width: 100%;opacity: 0.9;bottom: 0;}
+.quarto:hover .bg{background: lightYellow}
+.quarto .id{position: absolute;color: #333;left: 20px;bottom: 39px;font-size: 16px;font-weight: bold;}
+.quarto .tipo{position: absolute;color: #333;right: 25px;bottom: 40px;font-size: 12px;}
+.quarto .diaria{position: absolute;color: brown;right: 25px;bottom: 18px;font-size: 12px;}
+.quarto .flags{position: absolute;color: #333;left: 21px;bottom: 18px;font-size: 11px;}

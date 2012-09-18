@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911015210) do
+ActiveRecord::Schema.define(:version => 20120918015659) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome"
@@ -51,12 +51,23 @@ ActiveRecord::Schema.define(:version => 20120911015210) do
   end
 
   create_table "quartos", :force => true do |t|
-    t.integer  "solterio"
-    t.integer  "casal"
     t.string   "desc"
-    t.string   "diaria"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "diaria"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "tipos_quarto_id"
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+  end
+
+  create_table "tipos_quartos", :force => true do |t|
+    t.string   "nome"
+    t.integer  "cama_solteiro", :limit => 255
+    t.integer  "cama_casal",    :limit => 255
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "usuarios", :force => true do |t|

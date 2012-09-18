@@ -1,0 +1,14 @@
+<%= form_for [:admin,@tipos_quarto], :builder => MNE::TwitterBootstrapFormBuilder::FormBuilder, :html => { :class => "form-horizontal" } do |f| %>
+
+      <%= f.text_field :nome, :class => 'text_field' %>
+			
+      <%= f.number_field :cama_solteiro, :class => 'number_field', min: '0' %>
+			
+      <%= f.number_field :cama_casal, :class => 'number_field', min: '0' %>
+			
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_tipos_quartos_path, :class => 'btn' %>
+  </div>
+<% end %>
