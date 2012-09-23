@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  valor: 9.99
+  quantidade: 1
+  reserva: 
+
+two:
+  nome: MyString
+  valor: 9.99
+  quantidade: 1
+  reserva: 

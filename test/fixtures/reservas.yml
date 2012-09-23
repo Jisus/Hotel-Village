@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Cliente: 
+  Quarto: 
+  DataEntrada: 2012-09-21
+  DataSaida: 2012-09-21
+  Pagamento: MyString
+  DataPagamento: 2012-09-21
+
+two:
+  Cliente: 
+  Quarto: 
+  DataEntrada: 2012-09-21
+  DataSaida: 2012-09-21
+  Pagamento: MyString
+  DataPagamento: 2012-09-21

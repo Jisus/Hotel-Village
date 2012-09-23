@@ -4,6 +4,8 @@ class Quarto < ActiveRecord::Base
   has_and_belongs_to_many :flags
   belongs_to :tipos_quarto
   
+  has_many :Reserva, :dependent => :destroy
+  
   validates :diaria, :tipos_quarto_id, :presence => true
   validates_associated :tipos_quarto
   
@@ -17,4 +19,9 @@ class Quarto < ActiveRecord::Base
       find(:all)
     end
   end
+  
+  def nome
+    "#{self.id} - #{self.tipos_quarto.nome}"
+  end
+  
 end

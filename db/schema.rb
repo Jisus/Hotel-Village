@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918015659) do
+ActiveRecord::Schema.define(:version => 20120923161242) do
+
+  create_table "checkouts", :force => true do |t|
+    t.integer  "reserva_id"
+    t.string   "cliente"
+    t.string   "quarto"
+    t.datetime "entrada"
+    t.datetime "saida"
+    t.string   "pagamento"
+    t.date     "datapagamento"
+    t.string   "consumo"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "checkouts", ["reserva_id"], :name => "index_checkouts_on_reserva_id"
 
   create_table "clientes", :force => true do |t|
     t.string   "nome"
@@ -61,6 +76,31 @@ ActiveRecord::Schema.define(:version => 20120918015659) do
     t.integer  "imagem_file_size"
     t.datetime "imagem_updated_at"
   end
+
+  create_table "reserva_consumos", :force => true do |t|
+    t.string   "nome"
+    t.decimal  "valor"
+    t.integer  "quantidade"
+    t.integer  "reserva_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reserva_consumos", ["reserva_id"], :name => "index_reserva_consumos_on_reserva_id"
+
+  create_table "reservas", :force => true do |t|
+    t.integer  "Cliente_id"
+    t.integer  "Quarto_id"
+    t.datetime "DataEntrada"
+    t.datetime "DataSaida"
+    t.string   "Pagamento"
+    t.date     "DataPagamento"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "reservas", ["Cliente_id"], :name => "index_reservas_on_Cliente_id"
+  add_index "reservas", ["Quarto_id"], :name => "index_reservas_on_Quarto_id"
 
   create_table "tipos_quartos", :force => true do |t|
     t.string   "nome"

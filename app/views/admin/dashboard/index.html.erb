@@ -13,7 +13,7 @@
 			<a href="<%= admin_clientes_url %>"><span class="count"><%= @t_clientes %></span> Clientes</a>
 		</li>
 		<li>
-			<a href="#"><span class="count">X</span> Reservas</a>
+			<a href="#"><span class="count"><%= @t_reservas %></span> Reservas</a>
 		</li>
 		<li>
 			<a href="#"><span class="count">X</span> Reservas Ativas</a>
@@ -28,40 +28,22 @@
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
-			<th>
-				Quarto
-			</th>
-			<th>
-				Cliente
-			</th>
-			<th>
-				Data da Reserva
-			</th>
-			<th>
-				Data do Registro
-			</th>
-			<th>
-				View
-			</th>
+			<th>Quarto</th>
+			<th>Cliente</th>
+			<th>Data da Reserva</th>
+			<th>Data do Registro</th>
+			<th>Visualizar</th>
 		</tr>
 	</thead>
 	<tbody>
+		<% @u_reservas.each do |reserva| %>
 		<tr>
-			<td>
-				Nike.com Redesign
-			</td>
-			<td>
-				Monsters Inc
-			</td>
-			<td>
-				New Task
-			</td>
-			<td>
-				4 days ago
-			</td>
-			<td>
-				<a href="#" class="view-link">View</a>
-			</td>
+			<td><%= link_to reserva.Quarto.nome, admin_quarto_path(reserva.Quarto) %></td>
+			<td><%= link_to reserva.Cliente.nome_completo, admin_cliente_path(reserva.Cliente) %></td>
+			<td><%=l reserva.DataEntrada %></td>
+			<td><%=l reserva.created_at %></td>
+			<td><%= link_to "Visualizar", admin_reserva_path(reserva) %></td>
 		</tr>
+		<% end %>
 	</tbody>
 </table>

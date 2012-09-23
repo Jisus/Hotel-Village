@@ -10,4 +10,8 @@ class Cliente < ActiveRecord::Base
     end
   end
   
+  def nome_completo
+    "#{self.nome} #{self.sobrenome}"
+  end
+  
 end

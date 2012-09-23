@@ -1,0 +1,85 @@
+<%- model_class = Reserva -%>
+<div class="page-header">
+	<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+	<dt><strong><%= model_class.human_attribute_name(:Cliente_id) %>:</strong></dt>
+	<dd><%= @reserva.Cliente.nome_completo %></dd>
+	<dt><strong><%= model_class.human_attribute_name(:Quarto_id) %>:</strong></dt>
+	<dd><%= @reserva.Quarto.nome %></dd>
+	<dt><strong><%= model_class.human_attribute_name(:DataEntrada) %>:</strong></dt>
+	<dd><%= @reserva.DataEntrada %></dd>
+	<dt><strong><%= model_class.human_attribute_name(:DataSaida) %>:</strong></dt>
+	<dd><%= @reserva.DataSaida %></dd>
+	<dt><strong><%= model_class.human_attribute_name(:Pagamento) %>:</strong></dt>
+	<dd><%= @reserva.Pagamento %></dd>
+</dl>
+
+<%= form_for :checkout_save_admin, :html => { :class => 'form-horizontal' } do |f| %>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th style="width: 50px">Quant.</th>
+			<th>Descrição</th>
+			<th style="width: 200px">Valor Unit.</th>
+			<th style="width: 200px">Valor Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @reserva.diarias %></td>
+			<td>Diaria</td>
+			<td><%= @reserva.Quarto.diaria.real_formatado %></td>
+			<td><%= @reserva.valor_diarias.real_formatado %></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Coca-Cola</td>
+			<td>R$ 2,50</td>
+			<td>R$ 5,00 <%= f.button 'Remover', class: 'btn btn-mini btn-danger', style: "float:right", type: "button", onClick: "removeProduto(this)" %> </td>
+		</tr>
+	</tbody>
+	<thead>
+		<tr>
+			<th colspan="3">Valor Total</th>
+			<th>R$ 25,00</th>
+		</tr>
+	</thead>
+</table>
+
+<%= hidden_field :checkout, :cliente, value: @reserva.Cliente.nome_completo %>
+<%= hidden_field :checkout, :quarto, value: @reserva.Quarto.nome %>
+<%= hidden_field :checkout, :entrada, value: @reserva.DataEntrada %>
+<%= hidden_field :checkout, :saida, value: Time.now %>
+<%= hidden_field :checkout, :pagamento, value: @reserva.Pagamento %>
+<%= hidden_field :checkout, :datapagamento, value: @reserva.DataPagamento %>
+<%= hidden_field :checkout, :consumo %>
+
+<div id="addProduto" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Adicionar Produto</h3>
+  </div>
+  <div class="modal-body">
+		  <input id="quantidade" class="span1" type="number" min="1" placeholder="Quantidade">
+			<%= select("produtos","add",Produto.all.collect {|p| [ p.nome, p.id ] }, {:prompt => false}) %>
+  </div>
+  <div class="modal-footer">
+    <a href="javascript:void(0)" data-dismiss="modal" class="btn">Fechar</a>
+    <a href="javascript:void(0)" onclick="addProduto()" class="btn btn-primary">Adicionar</a>
+  </div>
+</div>
+
+<div class="form-actions">
+	<%= link_to t('.back', :default => t("helpers.links.back")), admin_reservas_path, :class => 'btn'  %>
+	
+	<%= link_to t('.edit', default: t("helpers.links.edit")), edit_admin_reserva_path(@reserva), :class => 'btn' %>
+	
+	<button type="button" data-toggle="modal" data-target="#addProduto" class="btn btn-success">Adicionar Produto</button>
+	
+	<%= f.submit 'Checkout', :class => 'btn btn-primary' %>
+</div>
+
+<% end %>

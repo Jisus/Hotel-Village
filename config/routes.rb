@@ -1,14 +1,18 @@
 Hotel::Application.routes.draw do
 
-
   namespace :admin do
-
     resources :produtos
     resources :clientes
     resources :usuarios
     resources :flags
     resources :quartos
     resources :tipos_quartos
+    resources :reservas do 
+      member do
+        get :checkout
+        put :checkout_save
+     end
+    end
     
   end
     
@@ -23,9 +27,7 @@ Hotel::Application.routes.draw do
   
   match 'admin/' => 'admin/dashboard#index', :as => :admin_home
   
-  match ':controller(/:action(/:id))(.:format)'
-  
-  root :to => 'admin/dashboard#index'
+  root :to => 'pages#index'
   
     
   # The priority is based upon order of creation:

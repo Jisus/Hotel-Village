@@ -1,0 +1,55 @@
+<%- model_class = Reserva -%>
+<div class="page-header">
+	<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th><%= model_class.human_attribute_name(:id) %></th>
+			<th><%= model_class.human_attribute_name(:Cliente_id) %></th>
+			<th><%= model_class.human_attribute_name(:Quarto_id) %></th>
+			<th><%= model_class.human_attribute_name(:DataEntrada) %></th>
+			<th><%= model_class.human_attribute_name(:DataSaida) %></th>
+			<th><%= model_class.human_attribute_name(:Pagamento) %></th>
+			<th><%= model_class.human_attribute_name(:DataPagamento) %></th>
+			<th><%= model_class.human_attribute_name(:created_at) %></th>
+			<th><%=t '.actions', :default => t("helpers.actions") %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @reservas.each do |reserva| %>
+		<% if DateTime.now > reserva.DataSaida %>
+		<tr class="error">
+		<% else if DateTime.now > reserva.DataEntrada %>
+		<tr class="info">
+		<% else %>
+		<tr>
+		<% end %>
+		<% end %>
+			<td><%= link_to reserva.id, admin_reserva_path(reserva) %></td>
+			<td><%= reserva.Cliente.nome_completo %></td>
+			<td><%= reserva.Quarto.nome %></td>
+			<td><%=l reserva.DataEntrada, :format => :short %></td>
+			<td><%=l reserva.DataSaida, :format => :short %></td>
+			<td><%= reserva.Pagamento %></td>
+			<td><%=l reserva.DataPagamento, :format => :short %></td>
+			<td><%=l reserva.created_at, :format => :short %></td>
+			<td>
+				<%= link_to t('.checkout', :default => t("helpers.links.checkout")),
+				checkout_admin_reserva_path(reserva), :class => 'btn btn-mini btn-primary' %>
+				<%= link_to t('.edit', :default => t("helpers.links.edit")),
+				edit_admin_reserva_path(reserva), :class => 'btn btn-mini' %>
+				<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+				admin_reserva_path(reserva),
+				:method => :delete,
+				:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+				:class => 'btn btn-mini btn-danger' %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_admin_reserva_path,
+:class => 'btn btn-primary' %>

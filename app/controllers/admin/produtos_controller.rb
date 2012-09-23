@@ -15,6 +15,7 @@ class Admin::ProdutosController < Admin::ApplicationController
   # GET /produtos/1.json
   def show
     @produto = Produto.find(params[:id])
+    @produto['valor_real'] = @produto.valor.real_formatado
 
     respond_to do |format|
       format.html # show.html.erb

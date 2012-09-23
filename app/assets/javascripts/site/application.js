@@ -12,16 +12,31 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.maskedinput-1.3.min
 //= require twitter/bootstrap
 //= require_tree .
-
 jQuery(function($){
    $(".date").mask("99/99/9999");
    $(".phone").mask("(99) 9999-9999");
    $(".cpf").mask("999.999.999-99");
    $(".cep").mask("99999-999");
-	 $('.dropdown-toggle').dropdown()
+	 $('.dropdown-toggle').dropdown();
+	 
+
+
+ 	Cufon.replace('h1') ('h2') ('h3') ('h4') ('h5') ('h6');
+	
+ 	jQuery('#slider').cycle({
+ 		timeout: 6000,  // milliseconds between slide transitions (0 to disable auto advance)
+ 		fx:     'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...            
+ 		prev:   '#slideprev', // selector for element to use as click trigger for next slide  
+ 		next:   '#slidenext', // selector for element to use as click trigger for previous slide
+ 		pause:   true,	  // true to enable "pause on hover"
+ 		cleartypeNoBg: true, // set to true to disable extra cleartype fixing (leave false to force background color setting on slides)
+ 		pauseOnPagerHover: 0 // true to pause when hovering over pager link
+ 	});
+	 
 });
 
 function carregaEndereco(input) {    
