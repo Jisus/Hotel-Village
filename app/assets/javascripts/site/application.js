@@ -29,6 +29,7 @@ jQuery(function($){
 
 	$.datepicker.setDefaults($.datepicker.regional['pt-BR']);	 
 	$('.datetimepicker').datetimepicker({
+		dateFormat: 'dd-mm-yy',
 		timeText: 'Horas',
 		hourText: 'Hora',
 		minuteText: 'Minuto',
