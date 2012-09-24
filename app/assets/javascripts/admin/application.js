@@ -78,6 +78,7 @@ function carregaEndereco(input) {
 function removeProduto(el){
 	$(el).parent().parent().fadeOut('slow', function(){
 		$(el).parent().parent().remove();
+		calcula();
 	});
 }
 
@@ -126,7 +127,7 @@ function calcula(){
 	var total = 0;
 	$('.consumo tbody tr').each(function(){
 		var total_this = parseFloat($('.qnt',this).val()) * parseFloat($('.valor',this).val());
-		$('.total',this).html(accounting.formatMoney(total_this));
+		$('.total',this).html(accounting.formatMoney(total_this)+'<button class="btn btn-mini btn-danger" name="button" onclick="removeProduto(this)" style="float:right" type="button">Remover</button>');
 		total = total + total_this;
 	});
 	$('#consumo_total').html(accounting.formatMoney(total));
