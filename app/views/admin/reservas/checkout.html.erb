@@ -18,7 +18,7 @@
 
 <%= form_for :checkout_save_admin, :html => { :class => 'form-horizontal' } do |f| %>
 
-<table class="table table-bordered">
+<table class="table table-bordered consumo">
 	<thead>
 		<tr>
 			<th style="width: 50px">Quant.</th>
@@ -29,33 +29,34 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= @reserva.diarias %></td>
-			<td>Diaria</td>
-			<td><%= @reserva.Quarto.diaria.real_formatado %></td>
-			<td><%= @reserva.valor_diarias.real_formatado %></td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Coca-Cola</td>
-			<td>R$ 2,50</td>
-			<td>R$ 5,00 <%= f.button 'Remover', class: 'btn btn-mini btn-danger', style: "float:right", type: "button", onClick: "removeProduto(this)" %> </td>
+			<td>
+				<%= @reserva.diarias %>
+				<input type="hidden" id="consumo_0_qnt" name="consumo[0][qnt]" class="qnt" value="<%= @reserva.diarias %>" />		
+			</td>
+			<td>
+				Diaria
+				<input type="hidden" id="consumo_0_desc" name="consumo[0][desc]" class="desc" value="Diaria" />		
+			</td>
+			<td>
+				<%= @reserva.Quarto.diaria.real_formatado %>
+				<input type="hidden" id="consumo_0_valor" name="consumo[0][valor]" class="valor" value="<%= @reserva.Quarto.diaria %>" />		
+			</td>
+			<td id="total_0" class="total">
+				
+			</td>
 		</tr>
 	</tbody>
 	<thead>
 		<tr>
 			<th colspan="3">Valor Total</th>
-			<th>R$ 25,00</th>
+			<th id="consumo_total">
+				
+			</th>
 		</tr>
 	</thead>
 </table>
 
-<%= hidden_field :checkout, :cliente, value: @reserva.Cliente.nome_completo %>
-<%= hidden_field :checkout, :quarto, value: @reserva.Quarto.nome %>
-<%= hidden_field :checkout, :entrada, value: @reserva.DataEntrada %>
-<%= hidden_field :checkout, :saida, value: Time.now %>
-<%= hidden_field :checkout, :pagamento, value: @reserva.Pagamento %>
-<%= hidden_field :checkout, :datapagamento, value: @reserva.DataPagamento %>
-<%= hidden_field :checkout, :consumo %>
+<script>calcula()</script>
 
 <div id="addProduto" class="modal hide fade">
   <div class="modal-header">

@@ -4,7 +4,7 @@
 		<div class="container">
 			<div id="top">
 				<div id="logo">
-					<a href="index.html"><img src="/images/logo.gif" alt=""></a>
+					<a href="/"><img src="/images/logo.gif" alt=""></a>
 				</div><!-- #logo -->
 				<div id="mainmenu">
 					<ul class="sn">
@@ -97,12 +97,13 @@
 											<ul class="sidebar">
 												<li class="widget-container newswidget">
 													<h2 class="widget-title">Reserva</h2>
-													<ul>
-														<li><span class="smalldate">Aaugust 3, 2011</span>Curabitur at dolor tellus, non accumsan nibh. Praesent ut tellus eu 
-															nulla hendrerit malesuada.</li>
-															<li><span class="smalldate">July 29, 2011</span>Curabitur at dolor tellus, non accumsan nibh. </li>
-															<li><span class="smalldate">July 29, 2011</span>Curabitur at dolor tellus, non accumsan nibh. sem id sem mattis sit amet egestas quam.</li>
-														</ul>
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis tincidunt porta.<p>
+														<input id="dataEntrada" type="text" class="datetimepicker" placeholder="Data de Entrada" >
+														
+														<input id="dataSaida" type="text" class="datetimepicker" placeholder="Data de Saída" ><br/>
+														
+														<button id="Reservar" onclick="reservaShow($('#dataEntrada').val(),$('#dataSaida').val())">Reservar</button>
+																												
 													</li>
 												</ul>   
 											</div><!-- #side-right -->
@@ -123,7 +124,7 @@
 			<div class="container">
 				<div id="footer">
 					<ul id="footer-menu">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="#">Sobre</a></li>
 						<li><a href="#">Serviços</a></li>
 						<li><a href="#">Quartos</a></li>

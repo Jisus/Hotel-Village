@@ -19,7 +19,25 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+var consumo_id = 0;
+
+accounting.settings = {
+	currency: {
+		symbol : "R$ ",   // default currency symbol is '$'
+		format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+		decimal : ",",  // decimal point separator
+		thousand: ".",  // thousands separator
+		precision : 2   // decimal places
+	},
+	number: {
+		precision : 0,  // default precision on numbers is 0
+		thousand: ".",
+		decimal : ","
+	}
+}
+
 jQuery(function($){
+	
 	$(".date").mask("99/99/9999");
 	$(".phone").mask("(99) 9999-9999");
 	$(".cpf").mask("999.999.999-99");
@@ -64,23 +82,52 @@ function removeProduto(el){
 }
 
 function addProduto(){
+	consumo_id++;
+	
 	qnt = $('#quantidade','#addProduto').val();
 	produto = $('#produtos_add','#addProduto').val();
 	
 	$.getJSON('/admin/produtos/'+produto).success(function(data){
-		tbody = "\
-		<tr style='display: none' class='new'>\
-			<td>"+qnt+"<input id='checkout_produto_consumo' name='checkout[ProdutoConsumo][]' type='hidden' value='Rodrigo'></td>\
-			<td>"+data.nome+"</td>\
-			<td>"+data.valor_real+'</td>\
-			<td>R$ 5,00\
-			<button class="btn btn-mini btn-danger" name="button" onclick="removeProduto(this)" style="float:right" type="button">Remover</button>\
-			</td>\
-		</tr>';
+		tbody = '\
+		<tr>\
+		<td>\
+		'+qnt+'\
+		<input type="hidden" id="consumo_'+consumo_id+'_qnt" name="consumo['+consumo_id+'][qnt]" class="qnt" value="'+qnt+'" />	\
+		</td>\
+		<td>\
+		'+data.desc+'\
+		<input type="hidden" id="consumo_'+consumo_id+'_desc" name="consumo['+consumo_id+'][desc]" class="desc" value="'+data.desc+'" />		\
+		</td>\
+		<td>\
+		'+data.valor_real+'\
+		<input type="hidden" id="consumo_'+consumo_id+'_valor" name="consumo['+consumo_id+'][valor]" class="valor" value="'+data.valor_decimal+'" />		\
+		</td>\
+		<td id="'+consumo_id+'" class="total">\
+		\
+		</td>\
+		</tr>\
+		';
 	
 		$('tbody').append(tbody);
 		$('.new').fadeIn('slow');
 	
+		calcula();
+		
 		$('#addProduto').modal('hide');
 	})
+}
+
+Number.prototype.formatMoney = function(c, d, t){
+	var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+	return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
+ 
+function calcula(){
+	var total = 0;
+	$('.consumo tbody tr').each(function(){
+		var total_this = parseFloat($('.qnt',this).val()) * parseFloat($('.valor',this).val());
+		$('.total',this).html(accounting.formatMoney(total_this));
+		total = total + total_this;
+	});
+	$('#consumo_total').html(accounting.formatMoney(total));
 }

@@ -16,6 +16,7 @@ class Admin::ProdutosController < Admin::ApplicationController
   def show
     @produto = Produto.find(params[:id])
     @produto['valor_real'] = @produto.valor.real_formatado
+    @produto['valor_decimal'] = @produto.valor.to_decimal
 
     respond_to do |format|
       format.html # show.html.erb

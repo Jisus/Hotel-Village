@@ -24,4 +24,19 @@ class Quarto < ActiveRecord::Base
     "#{self.id} - #{self.tipos_quarto.nome}"
   end
   
+  def ocupado? (dataEntrada = false, dataSaida = false)
+    ocupado = false
+    self.Reserva.each do |reserva|
+      if(dataEntrada > reserva.DataEntrada && dataEntrada < (reserva.DataSaida+30.minutes))
+        ocupado = true
+      elsif (dataSaida > reserva.DataEntrada && dataSaida < (reserva.DataSaida+30.minutes))
+        ocupado = true
+      elsif (dataSaida > (reserva.DataSaida+30.minutes) && dataEntrada < reserva.DataEntrada)
+        ocupado = true
+      else
+        ocupado = false
+      end
+    end
+    ocupado
+  end
 end
