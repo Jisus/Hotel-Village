@@ -1,8 +1,9 @@
 class ReservasController < ApplicationController
-
-  # GET /reservas/new
-  # GET /reservas/new.json
-  def show
+  
+  before_filter :authenticate_cliente!, :only => [:nova, :create, :sucesso]
+  
+  # GET /reservas/show/:dataEntrada/:dataSaida
+  def show    
     @quartos = Quarto.all
     @quartos_livres = [];
     
@@ -12,26 +13,39 @@ class ReservasController < ApplicationController
       end
     end
     
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @quartos }
-    end
   end
-
+  
+  # GET /reservas/nova/:id/:dataEntrada/:dataSaida
+  def nova
+    @quarto = Quarto.find(params[:id])
+    
+    @reserva = Reserva.new({
+      :DataEntrada => params[:dataEntrada].to_datetime,
+      :DataSaida => params[:dataSaida].to_datetime,
+      :Quarto_id => @quarto.id
+    })
+    
+  end
+  
   # POST /reservas
   # POST /reservas.json
   def create
     @reserva = Reserva.new(params[:reserva])
+    @reserva.Cliente = current_cliente
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to [:admin, @reserva], notice: 'Reserva adicionada com sucesso.' }
+        format.html { redirect_to :action => "sucesso", notice: 'Reserva adicionada com sucesso.' }
         format.json { render json: @reserva, status: :created, location: @reserva }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :action => "nova", notice: 'Reserva adicionada com sucesso.' }
         format.json { render json: @reserva.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def sucesso
+    
   end
   
 end

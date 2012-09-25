@@ -2,7 +2,7 @@ class Admin::ReservasController < Admin::ApplicationController
   # GET /reservas
   # GET /reservas.json
   def index
-    @reservas = Reserva.all
+    @reservas = Reserva.find(:all, :include => :Checkout, :conditions => { :checkouts => {:id => nil}} )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -93,15 +93,22 @@ class Admin::ReservasController < Admin::ApplicationController
 
   # PUT /reservas/1/checkout_save
   def checkout_save
+
     @reserva = Reserva.find(params[:id])
+    @reserva.Checkout = Checkout.new(params[:checkout])
+    consumos = []
+    params[:consumo].each do |v,c|
+      consumos.push Consumo.new(c)
+    end
+    @reserva.Checkout.Consumo = consumos
 
     respond_to do |format|
-      if @reserva.update_attributes(params[:reserva])
-        format.html { redirect_to [:checkout_admin, @reserva], notice: 'Checkout realizado com sucesso!' }
-        format.json { head :no_content }
+      if @reserva.save
+        format.html { redirect_to [:admin, @reserva.Checkout], notice: 'Checkout was successfully created.' }
+        format.json { render json: @reserva.Checkout, status: :created, location: @reserva.Checkout }
       else
-        format.html { render action: "checkout" }
-        format.json { render json: @reserva.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @reserva.Checkout.errors, status: :unprocessable_entity }
       end
     end
   end

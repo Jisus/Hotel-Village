@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  checkout: 
+  qnt: 1
+  desc: MyString
+  valor: 9.99
+  valor_total: 9.99
+
+two:
+  checkout: 
+  qnt: 1
+  desc: MyString
+  valor: 9.99
+  valor_total: 9.99

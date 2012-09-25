@@ -1,21 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  reserva: 
   cliente: MyString
   quarto: MyString
-  entrada: 2012-09-23 13:12:42
-  saida: 2012-09-23 13:12:42
-  pagamento: MyString
-  datapagamento: 2012-09-23
-  consumo: MyString
+  dataEntrada: 2012-09-24 22:02:51
+  dataSaida: 2012-09-24 22:02:51
+  tipoPagamento: MyString
+  valor_total: 9.99
 
 two:
-  reserva: 
   cliente: MyString
   quarto: MyString
-  entrada: 2012-09-23 13:12:42
-  saida: 2012-09-23 13:12:42
-  pagamento: MyString
-  datapagamento: 2012-09-23
-  consumo: MyString
+  dataEntrada: 2012-09-24 22:02:51
+  dataSaida: 2012-09-24 22:02:51
+  tipoPagamento: MyString
+  valor_total: 9.99

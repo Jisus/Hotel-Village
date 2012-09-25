@@ -16,7 +16,14 @@
 	<dd><%= @reserva.Pagamento %></dd>
 </dl>
 
-<%= form_for :checkout_save_admin, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for :checkout, :url => { :action => "checkout_save"}, :html => { :class => 'form-horizontal' } do |f| %>
+
+<%= f.hidden_field :cliente, :class => 'text_field', :value => @reserva.Cliente.nome_completo %>
+<%= f.hidden_field :quarto, :class => 'text_field', :value => @reserva.Quarto.nome %>
+<%= f.hidden_field :dataEntrada, :class => 'text_field', :value => @reserva.DataEntrada %>
+<%= f.hidden_field :dataSaida, :class => 'text_field', :value =>  @reserva.DataSaida %>
+<%= f.hidden_field :tipoPagamento, :class => 'text_field', :value => @reserva.Pagamento %>
+<%= f.hidden_field :valor_total, :class => 'text_field', :value => 200 %>
 
 <table class="table table-bordered consumo">
 	<thead>
@@ -75,7 +82,6 @@
 
 <div class="form-actions">
 	<%= link_to t('.back', :default => t("helpers.links.back")), admin_reservas_path, :class => 'btn'  %>
-	
 	<%= link_to t('.edit', default: t("helpers.links.edit")), edit_admin_reserva_path(@reserva), :class => 'btn' %>
 	
 	<button type="button" data-toggle="modal" data-target="#addProduto" class="btn btn-success">Adicionar Produto</button>

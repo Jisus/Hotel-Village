@@ -1,8 +1,6 @@
 Hotel::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  config.action_mailer.default_url_options = { :host => '187.33.0.175' }
-
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -66,4 +64,14 @@ Hotel::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  config.to_prepare do
+    Devise::SessionsController.layout "login"
+    Devise::RegistrationsController.layout "login"
+    Devise::ConfirmationsController.layout "login"
+    Devise::UnlocksController.layout "login"            
+    Devise::PasswordsController.layout "login"        
+  end
+  config.action_mailer.default_url_options = { :host => '187.33.0.175' }
+  
 end

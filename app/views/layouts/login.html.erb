@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "Hotel Village" %></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<%= stylesheet_link_tag    "site/application", :media => "all" %>
+	<%= javascript_include_tag "site/application" %>
+	<%= csrf_meta_tags %>
+	<%= yield(:head) %>
+</head>
+<body>
+	
+	<div id="outer-wrapper">
+
+		<div id="top-wrapper">
+			<div class="container">
+				<div id="top">
+					<div id="logo">
+						<a href="/"><img src="/images/logo.gif" alt=""></a>
+					</div><!-- #logo -->
+					<div id="mainmenu">
+						<ul class="sn">
+							<li><a href="#"><img src="/images/icon/i-facebook.png" alt=""></a></li>
+							<li><a href="#"><img src="/images/icon/i-last.fm.png" alt=""></a></li>
+							<li><a href="#"><img src="/images/icon/i-myspace.png" alt=""></a></li>
+							<li><a href="#"><img src="/images/icon/i-twitter.png" alt=""></a></li>
+							<li><a href="#"><img src="/images/icon/i-youtube.png" alt=""></a></li>
+						</ul>
+
+						<ul id="menu">
+							<li class="current"><a href="/">Home</a></li>
+							<li><a href="#">Sobre</a>
+								<ul style="visibility: hidden;">
+									<li><a href="#">Institucional</a></li>
+									<li><a href="#">Blog</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Serviços</a></li>
+							<li><a href="#">Quartos</a></li>
+							<li><a href="#">Reserva</a></li>
+							<li><a href="#">Fotos</a></li>
+							<li><a href="#">Contato</a></li>
+						</ul>
+						<div class="clear"></div>
+					</div><!-- #mainmenu -->
+				</div><!-- #top -->
+           
+			</div><!-- .container -->
+		</div><!-- #top-wrapper -->
+    
+
+		<div id="header-container">
+			<img src="/images/pic-inner5.jpg" alt="">
+		</div><!-- #header-container -->
+		<div class="clear"></div>
+    
+		<div id="content-wrapper" class="inner">
+			<div class="container">
+				<div id="content-container">
+					<div id="frame-content-t">
+						<div id="frame-content-b">
+ 
+							<div class="center">
+								<div id="main-content" class="full">
+
+									<%= yield %>
+								
+									</div><!-- #main-content -->
+                        
+									<div class="clear"></div>
+								</div><!-- .center -->
+                
+								<div class="clear"></div>
+							</div><!-- #frame-content-b -->
+						</div><!-- #frame-content-t -->
+					</div><!-- #content-container -->
+				</div><!-- .container -->
+			</div><!-- #content-wrapper -->
+
+			<div id="footer-wrapper">
+				<div class="container">
+					<div id="footer">
+						<ul id="footer-menu">
+							<li><a href="/">Home</a></li>
+							<li><a href="#">Sobre</a></li>
+							<li><a href="#">Serviços</a></li>
+							<li><a href="#">Quartos</a></li>
+							<li><a href="#">Reserva</a></li>
+							<li><a href="#">Fotos</a></li>
+							<li><a href="#">Contato</a></li>
+						</ul>
+						<div id="copyright">Copyright ©2012 Classica Hotel. All Rights Reserved</div>
+					</div><!-- #footer -->
+				</div><!-- .container -->
+			</div><!-- #footer-wrapper -->
+		</div>
+
+		<script type="text/javascript"> Cufon.now(); </script> <!-- to fix cufon problems in IE browser -->
+		<script type="text/javascript">jQuery('#noscript').remove();</script><!-- if javascript disable -->
+	
+</body>
+</html>

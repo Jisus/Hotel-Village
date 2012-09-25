@@ -51,32 +51,37 @@
  
 						<div class="center">
 							<div id="main-content" class="full">
-								<h1>Quartos:</h1>
-								<% if @quartos_livres.size > 0 %>
-								<p>Abaixo estão os quartos disponíveis no período de <b><%=l params[:dataEntrada].to_datetime %></b> á <b><%=l params[:dataSaida].to_datetime %></b>.</p>
-								<p>Clique sobre, para fazer a reserva:</p>
-								<div class="quartos">
-									<% @quartos_livres.each do |quarto| %>
-									<div class="quarto">
-										<div class="bg"></div>
-										<div class="id">COD: <%= quarto.id %></div>
-										<div class="tipo"><%= quarto.tipos_quarto.nome %></div>
-										<div class="diaria"><%= quarto.diaria.reais_formatado %></div>
-										<div class="flags">
-											<% for flag in Flag.find(:all) %> 
-											<%= quarto.flags.include?(flag) ? flag.nome : nil %>
-											<%= quarto.flags.include?(flag) && flag != quarto.flags.last ? ', ' : nil %>
-											<% end %>
-										</div>
-										<%= link_to image_tag(quarto.imagem.url(:medium)), nova_reserva_path(quarto.id, params[:dataEntrada], params[:dataSaida]) %>
-									</div>
-									<% end %>
-
-									<% elsif %>
-								<p>Não temos quartos disponíveis no período de <b><%=l params[:dataEntrada].to_datetime %></b> á <b><%=l params[:dataSaida].to_datetime %></b>.</p>
-									<% end %>
-								</div>
-                           
+								<h1>Quarto <%= @quarto.nome %>:</h1>
+								
+								<h3>Dados do Cliente:</h3>
+								
+								<p>
+									<b>Nome:</b> <%= current_cliente.nome_completo %><br/>
+									<b>Endereço:</b> <%= current_cliente.rua %>, <%= current_cliente.numero %>/<%= current_cliente.complemento %> - <%= current_cliente.bairro %> - <%= current_cliente.cidade %>/<%= current_cliente.estado %> <br/>
+									<b>Telefones:</b> <%= current_cliente.telefone %>, <%= current_cliente.celular %> <br/>
+								</p>
+								
+								<h3>Dados da Reserva:</h3>
+								
+								<p>
+									<b>Data de Entrada:</b> <%=l params[:dataEntrada].to_datetime %><br/>
+									<b>Data de Saida:</b> <%=l params[:dataSaida].to_datetime %><br/>
+									<b>Valor da Diaria:</b> <%= @quarto.diaria.real_formatado %><br/>
+									<b>Quantidade de Diarias:</b> <%= @reserva.diarias %><br/>
+								</p>
+								<p>
+									<b>Valor Total da Reserva:</b> <%= @reserva.valor_diarias.real_formatado %> <br/>
+								</p>
+                <%= form_for :reserva, :url => {:action => :create}, :html => { :class => 'form-horizontal' } do |f| %>
+								
+								<%= f.hidden_field :DataEntrada, :value => params[:dataEntrada] %>
+								<%= f.hidden_field :DataSaida, :value => params[:dataSaida] %>
+								<%= f.hidden_field :Quarto_id, :value => @quarto.id %>
+													 
+								<input type="submit" value="Confirmar Reserva"/>
+								
+								<% end %>
+								
 								</div><!-- #main-content -->
                         
 								<div class="clear"></div>

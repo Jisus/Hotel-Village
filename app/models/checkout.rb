@@ -1,5 +1,7 @@
 class Checkout < ActiveRecord::Base
-  belongs_to :reserva
-  attr_accessible :cliente, :consumo, :datapagamento, :entrada, :pagamento, :quarto, :saida
+  
+  attr_accessible :cliente, :dataEntrada, :dataSaida, :quarto, :tipoPagamento, :valor_total
+  
+  has_many :Consumo, :dependent => :destroy
   
 end

@@ -1,7 +1,15 @@
 Hotel::Application.routes.draw do
+  
+  root :to => 'pages#index'
+  
+  match 'admin/' => 'admin/dashboard#index', :as => :admin_home
+  match '/reservas/show/:dataEntrada/:dataSaida' => 'reservas#show'
+  match '/reservas/sucesso' => 'reservas#sucesso'
+  match '/reservas/show/:id/:dataEntrada/:dataSaida' => 'reservas#nova', :as => :nova_reserva
 
   namespace :admin do
     resources :produtos
+    resources :checkouts
     resources :clientes
     resources :usuarios
     resources :flags
@@ -10,13 +18,13 @@ Hotel::Application.routes.draw do
     resources :reservas do 
       member do
         get :checkout
-        put :checkout_save
-     end
+        post :checkout_save
+      end
     end
     
   end
-    
-  devise_for :usuarios, :skip => [:sessions]
+  
+  devise_for :usuarios, :skip => [:sessions], :controllers => { :sessions => "admin/sessions" }
   
   as :usuario do
     get 'admin/login' => 'admin/sessions#new', :as => :new_usuario_session
@@ -24,12 +32,11 @@ Hotel::Application.routes.draw do
     get 'admin/logout' => 'admin/sessions#destroy', :as => :destroy_usuario_session,
     :via => Devise.mappings[:usuario].sign_out_via
   end
+
+  devise_for :clientes, :controllers => { :sessions => "sessions" }
   
-  match 'admin/' => 'admin/dashboard#index', :as => :admin_home
+  match ':controller(/:action(/:id))(.:format)'
   
-  root :to => 'pages#index'
-  
-    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -85,7 +92,4 @@ Hotel::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   
-  match '/reservas/show/:dataEntrada/:dataSaida' => 'reservas#show'
-  
-  match ':controller(/:action(/:id))(.:format)'
 end

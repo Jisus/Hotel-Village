@@ -11,22 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923161242) do
+ActiveRecord::Schema.define(:version => 20120925044019) do
 
   create_table "checkouts", :force => true do |t|
-    t.integer  "reserva_id"
     t.string   "cliente"
     t.string   "quarto"
-    t.datetime "entrada"
-    t.datetime "saida"
-    t.string   "pagamento"
-    t.date     "datapagamento"
-    t.string   "consumo"
+    t.datetime "dataEntrada"
+    t.datetime "dataSaida"
+    t.string   "tipoPagamento"
+    t.decimal  "valor_total"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "reserva_id"
   end
-
-  add_index "checkouts", ["reserva_id"], :name => "index_checkouts_on_reserva_id"
 
   create_table "clientes", :force => true do |t|
     t.string   "nome"
@@ -41,10 +38,39 @@ ActiveRecord::Schema.define(:version => 20120923161242) do
     t.string   "cep"
     t.string   "estado"
     t.string   "pais"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "celular"
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+  end
+
+  add_index "clientes", ["confirmation_token"], :name => "index_clientes_on_confirmation_token", :unique => true
+  add_index "clientes", ["email"], :name => "index_clientes_on_email", :unique => true
+  add_index "clientes", ["reset_password_token"], :name => "index_clientes_on_reset_password_token", :unique => true
+
+  create_table "consumos", :force => true do |t|
+    t.integer  "checkout_id"
+    t.integer  "qnt"
+    t.string   "desc"
+    t.decimal  "valor"
+    t.decimal  "valor_total"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "celular"
   end
+
+  add_index "consumos", ["checkout_id"], :name => "index_consumos_on_checkout_id"
 
   create_table "flags", :force => true do |t|
     t.string   "nome"
@@ -76,17 +102,6 @@ ActiveRecord::Schema.define(:version => 20120923161242) do
     t.integer  "imagem_file_size"
     t.datetime "imagem_updated_at"
   end
-
-  create_table "reserva_consumos", :force => true do |t|
-    t.string   "nome"
-    t.decimal  "valor"
-    t.integer  "quantidade"
-    t.integer  "reserva_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "reserva_consumos", ["reserva_id"], :name => "index_reserva_consumos_on_reserva_id"
 
   create_table "reservas", :force => true do |t|
     t.integer  "Cliente_id"

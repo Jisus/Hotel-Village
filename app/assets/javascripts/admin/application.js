@@ -63,7 +63,7 @@ jQuery(function($){
 
 function carregaEndereco(input) {    
 	// com jquery ficaria mais ou menos assim:  
-	$.getJSON("/system/busca_cep?cep = " + input.value, function (data) {  
+	$.getJSON("/system/busca_cep?cep=" + input.value, function (data) {  
 		$('.rua').val(data[0]+' '+data[1]);
 		$('.bairro').val(data[2]);
 		$('.cidade').val(data[3]);
