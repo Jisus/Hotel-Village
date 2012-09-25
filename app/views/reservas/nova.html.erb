@@ -76,6 +76,7 @@
 								
 								<%= f.hidden_field :DataEntrada, :value => params[:dataEntrada] %>
 								<%= f.hidden_field :DataSaida, :value => params[:dataSaida] %>
+								<%= f.hidden_field :DataPagamento, :value => DateTime.now %>
 								<%= f.hidden_field :Quarto_id, :value => @quarto.id %>
 													 
 								<input type="submit" value="Confirmar Reserva"/>
