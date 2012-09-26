@@ -50,7 +50,7 @@ cufon{text-indent:0!important;}@media screen,projection{cufon{display:inline!imp
 .quarto .flags{position: absolute;color: #333;left: 21px;bottom: 18px;font-size: 11px;}
 
 .dl-horizontal dd {
-	height:20px;
+	height:20px; display:table;
 }
 
 .error {	border: 2px solid brown;	padding: 10px;	color: red;}

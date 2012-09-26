@@ -38,5 +38,5 @@
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 
 .dl-horizontal dd {
-	height:20px;
+	height:20px; display:table;
 }
