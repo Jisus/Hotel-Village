@@ -245,4 +245,5 @@ pt-BR:
       produto:
         desc: "Descrição"
       quarto:
+				diaria: "Valor da Diária"
         desc: "Descrição"
