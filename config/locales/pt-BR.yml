@@ -242,3 +242,7 @@ pt-BR:
         Pagamento: "Tipo de Pagamento"
         valor_total: "Valor Total"
         created_at: "Criada em:"
+      produto:
+        desc: "Descrição"
+      quarto:
+        desc: "Descrição"
