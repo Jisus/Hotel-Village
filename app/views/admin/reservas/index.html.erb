@@ -11,7 +11,6 @@
 			<th><%= model_class.human_attribute_name(:DataEntrada) %></th>
 			<th><%= model_class.human_attribute_name(:DataSaida) %></th>
 			<th><%= model_class.human_attribute_name(:Pagamento) %></th>
-			<th><%= model_class.human_attribute_name(:DataPagamento) %></th>
 			<th><%= model_class.human_attribute_name(:created_at) %></th>
 			<th><%=t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
@@ -32,7 +31,6 @@
 			<td><%=l reserva.DataEntrada, :format => :short %></td>
 			<td><%=l reserva.DataSaida, :format => :short %></td>
 			<td><%= reserva.Pagamento %></td>
-			<td><%=l reserva.DataPagamento, :format => :short %></td>
 			<td><%=l reserva.created_at, :format => :short %></td>
 			<td>
 				<%= link_to t('.checkout', :default => t("helpers.links.checkout")),

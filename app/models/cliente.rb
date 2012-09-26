@@ -4,14 +4,12 @@ class Cliente < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
   
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable
+  attr_accessible :bairro, :cep, :cpf, :cidade, :complemento, :email, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone, :celular, :password, :password_confirmation, :remember_me
+    
+  validates_presence_of :cpf, :email, :nome, :sobrenome, :telefone, :password
   
-  attr_accessible :bairro, :cep, :cidade, :complemento, :email, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone, :celular
+  usar_como_cpf :cpf
     
   def self.search(search)
     if search

@@ -21,8 +21,8 @@
         <td><%= link_to checkout.id, admin_checkout_path(checkout) %></td>
         <td><%= checkout.cliente %></td>
         <td><%= checkout.quarto %></td>
-        <td><%=l checkout.dataEntrada %></td>
-        <td><%=l checkout.dataSaida %></td>
+        <td><%=l checkout.dataEntrada, :format => :short %></td>
+        <td><%=l checkout.dataSaida, :format => :short %></td>
         <td><%= checkout.tipoPagamento %></td>
         <td><%= checkout.valor_total %></td>
         <td>

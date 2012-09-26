@@ -1,5 +1,5 @@
-<p>Welcome <%= @resource.email %>!</p>
+<p>Olá <%= @resource.email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Clique no link para confirmar sua conta no Hotel Classica e dar continuidade a sua reserva:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= link_to 'Confirmar Minha Conta', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

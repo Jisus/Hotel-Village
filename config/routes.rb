@@ -6,6 +6,7 @@ Hotel::Application.routes.draw do
   match '/reservas/show/:dataEntrada/:dataSaida' => 'reservas#show'
   match '/reservas/sucesso' => 'reservas#sucesso'
   match '/reservas/show/:id/:dataEntrada/:dataSaida' => 'reservas#nova', :as => :nova_reserva
+  match '/clientes/sucesso' => 'clientes#sucesso', :as => :cliente_sucesso
 
   namespace :admin do
     resources :produtos
@@ -34,6 +35,13 @@ Hotel::Application.routes.draw do
   end
 
   devise_for :clientes, :controllers => { :sessions => "sessions" }
+  
+  as :cliente do
+    get 'clientes/login' => 'sessions#new', :as => :new_cliente_session
+    post 'clientes/login' => 'sessions#create', :as => :cliente_session
+    get 'clientes/logout' => 'sessions#destroy', :as => :destroy_cliente_session,
+    :via => Devise.mappings[:cliente].sign_out_via
+  end
   
   match ':controller(/:action(/:id))(.:format)'
   

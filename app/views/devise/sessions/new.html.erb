@@ -1,21 +1,16 @@
-<div class="login-form">
-	<h2>Painel Administrativo</h2>
-	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	<fieldset>
+<h2>Entrar</h2>
 
-		<%= f.email_field :email, :placeholder => 'E-mail' %>
-			
-		<%= f.password_field :password, :placeholder => 'Senha' %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-		<% if devise_mapping.rememberable? -%>
+  <%= f.email_field :email %>
+
+  <%= f.password_field :password %>
+
+  <% if devise_mapping.rememberable? -%>
 		<%= f.check_box :remember_me %>
-		<% end -%>
-		
-		<%= f.submit "Sign in", :class => 'btn btn-primary'%>
-		<% end %>
+  <% end -%>
 
-		<%= render "devise/shared/links" %>
-			
-	</filedset>
-						 
-</div>
+	<%= f.submit "Entrar" %>
+<% end %>
+
+<%= render "devise/shared/links" %>

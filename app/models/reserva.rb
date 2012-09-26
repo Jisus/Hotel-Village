@@ -4,6 +4,8 @@ class Reserva < ActiveRecord::Base
   has_one :Checkout
   attr_accessible :DataEntrada, :DataPagamento, :DataSaida, :Pagamento, :Cliente_id, :Quarto_id
   
+  validates_presence_of :DataEntrada, :DataSaida, :Pagamento
+  
   def diarias
     diarias = self.DataEntrada.time.hour < 12 ? 1 : 0
     diarias = diarias + (self.DataSaida.to_date - self.DataEntrada.to_date).to_i

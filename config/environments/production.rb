@@ -79,8 +79,8 @@ Hotel::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            'jisusbh@gmail.com',
-    password:             'rd2220casa',
+    user_name:            'hotel.classica@gmail.com',
+    password:             'uscs2012',
     authentication:       'plain',
     enable_starttls_auto: true  
   }

@@ -9,6 +9,8 @@ class Quarto < ActiveRecord::Base
   validates :diaria, :tipos_quarto_id, :presence => true
   validates_associated :tipos_quarto
   
+  validates_presence_of :diaria, :imagem
+  
   usar_como_dinheiro :diaria
   has_attached_file :imagem, :styles => { :medium => "280x256#", :thumb => "200x200#" }
   

@@ -3,6 +3,8 @@ class Produto < ActiveRecord::Base
   
   usar_como_dinheiro :valor
   
+  validates_presence_of :nome, :valor
+  
   def self.search(search)
     if search
       find(:all, :conditions => ['nome LIKE :search OR desc LIKE :search OR valor LIKE :search', {:search => "%#{search}%"}])

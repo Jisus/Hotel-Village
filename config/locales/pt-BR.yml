@@ -207,7 +207,7 @@ pt-BR:
     formats:
       default: ! '%A, %d de %B de %Y, %H:%M h'
       long: ! '%A, %d de %B de %Y, %H:%M h'
-      short: ! '%d/%m, %H:%M h'
+      short: ! '%d/%m/%Y, %H:%M h'
     pm: ''
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
@@ -216,3 +216,29 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+    models:
+      checkout: Checkout
+      tipos_quarto: "Tipos de Quarto"
+    attributes:
+      checkout:
+        dataEntrada: "Data de Entrada"
+        dataSaida: "Data de Saída"
+        tipoPagamento: "Tipo de Pagamento"
+        valor_total: "Valor Total"
+        created_at: "Criado em:"
+      usuario:
+        email: "E-mail"
+        created_at: "Criado em:"
+      cliente:
+        email: "E-mail"
+        created_at: "Criado em:"
+      tipos_quarto:
+        cama_solteiro: "Cama de Solteiro"
+        cama_casal: "Cama de Casal"
+        created_at: "Criado em:"
+      reserva:
+        DataEntrada: "Data de Entrada"
+        DataSaida: "Data de Saída"
+        Pagamento: "Tipo de Pagamento"
+        valor_total: "Valor Total"
+        created_at: "Criada em:"

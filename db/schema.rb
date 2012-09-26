@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925044019) do
+ActiveRecord::Schema.define(:version => 20120926042924) do
 
   create_table "checkouts", :force => true do |t|
     t.string   "cliente"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20120925044019) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "cpf"
   end
 
   add_index "clientes", ["confirmation_token"], :name => "index_clientes_on_confirmation_token", :unique => true
@@ -119,10 +120,10 @@ ActiveRecord::Schema.define(:version => 20120925044019) do
 
   create_table "tipos_quartos", :force => true do |t|
     t.string   "nome"
-    t.integer  "cama_solteiro", :limit => 255
-    t.integer  "cama_casal",    :limit => 255
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.integer  "cama_solteiro", :limit => 255, :default => 0, :null => false
+    t.integer  "cama_casal",    :limit => 255, :default => 0, :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "usuarios", :force => true do |t|
