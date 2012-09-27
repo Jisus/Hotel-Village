@@ -9,9 +9,9 @@
 	<dt><strong><%= model_class.human_attribute_name(:Quarto_id) %>:</strong></dt>
 	<dd><%= @reserva.Quarto.nome %></dd>
 	<dt><strong><%= model_class.human_attribute_name(:DataEntrada) %>:</strong></dt>
-	<dd><%= @reserva.DataEntrada %></dd>
+	<dd><%=l @reserva.DataEntrada, :format => :short %></dd>
 	<dt><strong><%= model_class.human_attribute_name(:DataSaida) %>:</strong></dt>
-	<dd><%= @reserva.DataSaida %></dd>
+	<dd><%=l @reserva.DataSaida, :format => :short %></dd>
 	<dt><strong><%= model_class.human_attribute_name(:Pagamento) %>:</strong></dt>
 	<dd><%= @reserva.Pagamento %></dd>
 </dl>
