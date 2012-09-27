@@ -71,8 +71,15 @@
     <h3>Adicionar Produto</h3>
   </div>
   <div class="modal-body">
-		  <input id="quantidade" class="span1" type="number" min="1" placeholder="Quantidade">
+		<div style="float:left">
+			<label>Quantidade</label>
+		  <input id="quantidade" class="span1" type="number" min="1" placeholder="Quantidade" style="width: 91px; margin-right:10px;">
+		</div>
+		<div style="float:left">
+			<label>Produto</label>
 			<%= select("produtos","add",Produto.all.collect {|p| [ p.nome, p.id ] }, {:prompt => false}) %>
+		</div>
+		<div style="clear:both"></div>
   </div>
   <div class="modal-footer">
     <a href="javascript:void(0)" data-dismiss="modal" class="btn">Fechar</a>

@@ -66,40 +66,43 @@
 							<div class="center">
 								<div id="main-content" class="full">
 
+									<% flash.each do |name, msg| %>
+									<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+									<% end %>
 									<%= yield %>
 								
-									</div><!-- #main-content -->
+								</div><!-- #main-content -->
                         
-									<div class="clear"></div>
-								</div><!-- .center -->
-                
 								<div class="clear"></div>
-							</div><!-- #frame-content-b -->
-						</div><!-- #frame-content-t -->
-					</div><!-- #content-container -->
-				</div><!-- .container -->
-			</div><!-- #content-wrapper -->
+							</div><!-- .center -->
+                
+							<div class="clear"></div>
+						</div><!-- #frame-content-b -->
+					</div><!-- #frame-content-t -->
+				</div><!-- #content-container -->
+			</div><!-- .container -->
+		</div><!-- #content-wrapper -->
 
-			<div id="footer-wrapper">
-				<div class="container">
-					<div id="footer">
-						<ul id="footer-menu">
-							<li><a href="/">Home</a></li>
-							<li><a href="#">Sobre</a></li>
-							<li><a href="#">Serviços</a></li>
-							<li><a href="#">Quartos</a></li>
-							<li><a href="#">Reserva</a></li>
-							<li><a href="#">Fotos</a></li>
-							<li><a href="#">Contato</a></li>
-						</ul>
-						<div id="copyright">Copyright ©2012 Classica Hotel. All Rights Reserved</div>
-					</div><!-- #footer -->
-				</div><!-- .container -->
-			</div><!-- #footer-wrapper -->
-		</div>
+		<div id="footer-wrapper">
+			<div class="container">
+				<div id="footer">
+					<ul id="footer-menu">
+						<li><a href="/">Home</a></li>
+						<li><a href="#">Sobre</a></li>
+						<li><a href="#">Serviços</a></li>
+						<li><a href="#">Quartos</a></li>
+						<li><a href="#">Reserva</a></li>
+						<li><a href="#">Fotos</a></li>
+						<li><a href="#">Contato</a></li>
+					</ul>
+					<div id="copyright">Copyright ©2012 Classica Hotel. All Rights Reserved</div>
+				</div><!-- #footer -->
+			</div><!-- .container -->
+		</div><!-- #footer-wrapper -->
+	</div>
 
-		<script type="text/javascript"> Cufon.now(); </script> <!-- to fix cufon problems in IE browser -->
-		<script type="text/javascript">jQuery('#noscript').remove();</script><!-- if javascript disable -->
+	<script type="text/javascript"> Cufon.now(); </script> <!-- to fix cufon problems in IE browser -->
+	<script type="text/javascript">jQuery('#noscript').remove();</script><!-- if javascript disable -->
 	
 </body>
 </html>

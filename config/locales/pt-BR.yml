@@ -245,5 +245,6 @@ pt-BR:
       produto:
         desc: "Descrição"
       quarto:
+        tipos_quarto: "Tipo do Quarto"
         diaria: "Valor da Diária"
         desc: "Descrição"
