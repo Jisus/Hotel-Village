@@ -7,7 +7,7 @@ class Cliente < ActiveRecord::Base
   
   attr_accessible :bairro, :cep, :cpf, :cidade, :complemento, :email, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone, :celular, :password, :password_confirmation, :remember_me
     
-  validates_presence_of :bairro, :cep, :cpf, :cidade, :complemento, :email, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone
+  validates_presence_of :bairro, :cep, :cpf, :cidade, :complemento, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone
   
   has_many :Reserva
   
