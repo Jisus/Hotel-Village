@@ -73,11 +73,15 @@ class Admin::TiposQuartosController < Admin::ApplicationController
   # DELETE /tipos_quartos/1.json
   def destroy
     @tipos_quarto = TiposQuarto.find(params[:id])
-    @tipos_quarto.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_tipos_quartos_url }
-      format.json { head :no_content }
+      if @tipos_quarto.destroy
+        format.html { redirect_to [:admin, @tipos_quarto] }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { head :no_content }
+      end
     end
   end
 end

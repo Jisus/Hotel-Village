@@ -9,6 +9,10 @@ class Cliente < ActiveRecord::Base
     
   validates_presence_of :bairro, :cep, :cpf, :cidade, :complemento, :email, :estado, :nome, :numero, :pais, :rua, :sobrenome, :telefone
   
+  has_many :Reserva
+  
+  before_destroy :DeleteValidate?
+  
   usar_como_cpf :cpf
     
   def self.search(search)
@@ -21,6 +25,15 @@ class Cliente < ActiveRecord::Base
   
   def nome_completo
     "#{self.nome} #{self.sobrenome}"
+  end
+  
+  def DeleteValidate?
+    self.Reserva.each do |reserva|
+      if(reserva.Checkout == nil)
+        errors.add(:base, "Existe reservas ativas para esse Cliente")
+      end
+    end
+    errors.blank?
   end
   
 end

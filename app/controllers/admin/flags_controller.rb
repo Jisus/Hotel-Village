@@ -77,8 +77,13 @@ class Admin::FlagsController < Admin::ApplicationController
     @flag.destroy
 
     respond_to do |format|
-      format.html { redirect_to [:admin,@flag] }
-      format.json { head :no_content }
+      if @flag.destroy
+        format.html { redirect_to [:admin, @flag] }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { head :no_content }
+      end
     end
   end
 end

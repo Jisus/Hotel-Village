@@ -40,3 +40,10 @@
 .dl-horizontal dd {
 	height:20px; display:table;
 }
+
+.errorShow .errorExplanation h2, .errorShow .errorExplanation p {
+	display:none;
+}
+.errorShow{
+	color:red;
+}

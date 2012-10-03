@@ -77,8 +77,13 @@ class Admin::ClientesController < Admin::ApplicationController
     @cliente.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_clientes_url }
-      format.json { head :no_content }
+      if @cliente.destroy
+        format.html { redirect_to [:admin, @cliente] }
+        format.json { head :no_content }
+      else
+        format.html { render action: "show" }
+        format.json { head :no_content }
+      end
     end
   end
 end

@@ -2,16 +2,20 @@ class Quarto < ActiveRecord::Base
   attr_accessible :desc, :diaria, :flag_id, :flag_ids, :tipos_quarto_id, :imagem
 
   has_and_belongs_to_many :flags
+  
   belongs_to :tipos_quarto
   
-  has_many :Reserva, :dependent => :destroy
+  has_many :Reserva
   
   validates :diaria, :tipos_quarto_id, :presence => true
+  
   validates_associated :tipos_quarto
   
   validates_presence_of :diaria, :imagem
   
   validates :diaria, :numericality => { :greater_than => 0 }
+  
+  before_destroy :DeleteValidate?
   
   usar_como_dinheiro :diaria
   has_attached_file :imagem, :styles => { :medium => "280x256#", :thumb => "200x200#" }
@@ -42,5 +46,14 @@ class Quarto < ActiveRecord::Base
       end
     end
     ocupado
+  end
+  
+  def DeleteValidate?
+    self.Reserva.each do |reserva|
+      if(reserva.Checkout == nil)
+        errors.add(:base, "Existem reservas ativas para esse Quarto")
+      end
+    end
+    errors.blank?
   end
 end
