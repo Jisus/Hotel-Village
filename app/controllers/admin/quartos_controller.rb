@@ -45,7 +45,7 @@ class Admin::QuartosController < Admin::ApplicationController
 
     respond_to do |format|
       if @quarto.save
-        format.html { redirect_to [:admin, @quarto], notice: 'Quarto was successfully created.' }
+        format.html { redirect_to [:admin, @quarto], notice: 'Quarto criado com sucesso.' }
         format.json { render json: @quarto, status: :created, location: @quarto }
       else
         format.html { render action: "new" }
@@ -65,7 +65,7 @@ class Admin::QuartosController < Admin::ApplicationController
 
     respond_to do |format|
       if @quarto.update_attributes(params[:quarto])
-        format.html { redirect_to [:admin, @quarto], notice: 'Quarto was successfully updated.' }
+        format.html { redirect_to [:admin, @quarto], notice: 'Quarto atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
