@@ -11,6 +11,8 @@ class Quarto < ActiveRecord::Base
   
   validates_presence_of :diaria, :imagem
   
+  validates :diaria, :numericality => { :greater_than => 0 }
+  
   usar_como_dinheiro :diaria
   has_attached_file :imagem, :styles => { :medium => "280x256#", :thumb => "200x200#" }
   
