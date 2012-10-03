@@ -5,6 +5,7 @@ Hotel::Application.routes.draw do
   match 'admin/' => 'admin/dashboard#index', :as => :admin_home
   match '/reservas/show/:dataEntrada/:dataSaida' => 'reservas#show'
   match '/reservas/sucesso' => 'reservas#sucesso'
+  match '/reservas/create' => 'reservas#create'
   match '/reservas/show/:id/:dataEntrada/:dataSaida' => 'reservas#nova', :as => :nova_reserva
   match '/clientes/sucesso' => 'clientes#sucesso', :as => :cliente_sucesso
 

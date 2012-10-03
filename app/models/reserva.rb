@@ -1,8 +1,12 @@
 class Reserva < ActiveRecord::Base
+  
   belongs_to :Cliente
+  
   belongs_to :Quarto
+  
   has_one :Checkout
-  attr_accessible :DataEntrada, :DataPagamento, :DataSaida, :Pagamento, :Cliente_id, :Quarto_id
+  
+  attr_accessible :DataEntrada, :DataPagamento, :DataSaida, :Pagamento, :Cliente_id, :Quarto_id, :Quarto
   
   validates_presence_of :DataEntrada, :DataSaida, :Pagamento
   
