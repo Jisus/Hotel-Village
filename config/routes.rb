@@ -25,7 +25,7 @@ Hotel::Application.routes.draw do
     
   end
   
-  devise_for :usuarios, :skip => [:sessions], :controllers => { :sessions => "admin/sessions" }
+  devise_for :usuarios, :skip => [:sessions], :controllers => { :sessions => "admin/sessions"}
   
   as :usuario do
     get 'admin/login' => 'admin/sessions#new', :as => :new_usuario_session
@@ -34,7 +34,7 @@ Hotel::Application.routes.draw do
     :via => Devise.mappings[:usuario].sign_out_via
   end
 
-  devise_for :clientes, :controllers => { :sessions => "sessions" }
+  devise_for :clientes, :controllers => { :sessions => "sessions", :registrations => :registrations}
   
   as :cliente do
     get 'clientes/login' => 'sessions#new', :as => :new_cliente_session

@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0088)http://labs.findsubstance.com/2008/02/26/firebugs-console-log-flash-debugging-made-easy/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+    <title>  Firebug’s Console Log, Flash debugging made easy - Substance Labs</title>    
+    <link type="text/css" rel="stylesheet" href="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/screen.css" media="screen">
+    <link type="image/x-icon" rel="shortcut icon" href="http://labs.findsubstance.com/favicon.ico">
+    <link type="application/rss+xml" rel="alternate" title="Substance Labs RSS Feed" href="http://labs.findsubstance.com/feed/">
+    <script type="text/javascript" src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/libraries.js"></script>    
+    <link rel="alternate" type="application/rss+xml" title="Substance Labs » Firebug’s Console Log, Flash debugging made easy Comments Feed" href="http://labs.findsubstance.com/2008/02/26/firebugs-console-log-flash-debugging-made-easy/feed/">
+<script type="text/javascript" src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/swfobject.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://labs.findsubstance.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://labs.findsubstance.com/wp-includes/wlwmanifest.xml"> 
+<link rel="next" title="Logobama ’08" href="http://labs.findsubstance.com/2008/03/03/logobama-08/">
+<meta name="generator" content="WordPress 3.4.2">
+<link rel="canonical" href="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/Firebug’s Console Log, Flash debugging made easy - Substance Labs.html">
+<link rel="shortlink" href="http://labs.findsubstance.com/?p=3">
+<meta name="description" content="I have to admit, debugging in Flash has always been a painful thing. There&#39;s nothing more stressful when everything works ...">
+<!-- Vipers Video Quicktags v6.4.3 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; } 
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "http://labs.findsubstance.com/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+</head>
+<body class="labs">
+<div id="wrapper">
+    <div id="header"> 
+    	    	    	<div id="logo"><a href="http://labs.findsubstance.com/" title="Substance Labs home page"><img src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/logo.png" alt="Substance Labs"></a></div>
+    	        <p id="nav"><span>
+        	<em>Substance is</em> <a href="http://findsubstance.com/thinking/" id="n-think">our thinking</a>,
+            <a href="http://findsubstance.com/portfolio/" id="n-work">our work</a>,
+            <a href="http://labs.findsubstance.com/" id="n-lab">our laboratory</a>,
+            &amp; <a href="http://findsubstance.com/about/" id="n-about">who we are</a>.
+        </span></p>        <ul id="cat-nav">
+        	<li class="cat-item cat-item-14"><a href="http://labs.findsubstance.com/category/accessibility/" title="Web Accessibility">Accessibility</a> (2)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://labs.findsubstance.com/category/air/" title="Adobe Integrated Runtime">AIR</a> (2)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://labs.findsubstance.com/category/as3/" title="ActionScript 3">AS3</a> (8)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://labs.findsubstance.com/category/css/" title="Cascading Style Sheets">CSS</a> (3)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://labs.findsubstance.com/category/experiments/" title="Experiments">Experiments</a> (6)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://labs.findsubstance.com/category/flash/" title="Flash">Flash</a> (9)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://labs.findsubstance.com/category/html/" title="HyperText Markup Language">HTML</a> (2)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://labs.findsubstance.com/category/javascript/" title="JavaScript">JavaScript</a> (1)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://labs.findsubstance.com/category/php/" title="PHP: Hypertext Preprocessor">PHP</a> (2)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://labs.findsubstance.com/category/productivity/" title="Productivity">Productivity</a> (3)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://labs.findsubstance.com/category/research/" title="Research">Research</a> (4)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://labs.findsubstance.com/category/wordpress/" title="View all posts filed under Wordpress">Wordpress</a> (1)
+</li>
+        </ul>
+    </div>	<div id="content">
+		<div id="main">
+					<div class="hentry">
+           	 	<abbr class="updated" title="2008-02-26UTC12:01:570">26 February 2008</abbr>
+				<h1 class="entry-title" id="post-3">Firebug’s Console Log, Flash debugging made easy</h1>
+				<div class="entry-content">
+									
+					<p>I have to admit, debugging in Flash has always been a painful thing. There’s nothing more stressful when everything works fine in the IDE, but completely craps out once pushed to the site, and you’ve got to figure out the problem <em>right freakin’ now</em> when the most you have to go on is “um, the Flash doesn’t work.”</p>
+<p>Enter Console Log. For those of you who don’t have Firebug, <a href="https://addons.mozilla.org/en-US/firefox/addon/1843" target="_blank">get it</a>.  Now you can trace out to the Firebug console log from your .swf.</p>
+<p><img src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/firebug_console.jpg" alt=""></p>
+<h2>It’s as simple as two lines of code:</h2>
+<p>First, import the package declaration:</p>
+<pre><code>import flash.external.ExternalInterface;</code></pre>
+<p>Next, call to the log whenever you want to trace something out</p>
+<pre><code>ExternalInterface.call( "console.log" , "Hey! I'm tracing from Flash!");</code></pre>
+<p>Yes. It’s that simple. You can even add variables and other data to the trace. Just treat the argument as any other string:</p>
+<pre><code>ExternalInterface.call( "console.log" , "My variable is" + myVar );</code></pre>
+<p>This is even more useful when you can’t actually view the site. We recently had to debug an issue that was behind a client’s firewall. Rather than guessing back and forth, we were able to deliver a new .swf with a bunch of calls to the console, and solved the problem in a matter of minutes, as opposed to hours of guesswork.</p>
+<p>Try it for yourself. You’ll appreciate how useful it is.</p>
+				</div>
+				<div class="meta">
+					<p><em>posted by</em> <span class="vcard author"><span class="fn">David Lowe-Rogstad</span></span></p>
+					<p><em>thinking about…</em> <a href="http://labs.findsubstance.com/category/as3/" title="View all posts in AS3" rel="category tag">AS3</a>, <a href="http://labs.findsubstance.com/category/flash/" title="View all posts in Flash" rel="category tag">Flash</a>, <a href="http://labs.findsubstance.com/category/productivity/" title="View all posts in Productivity" rel="category tag">Productivity</a></p>                        
+				</div> 
+			</div>
+			<div id="comments">
+	<h3>17 Comments…</h3> 
+	<ol class="commentlist">
+	
+		<li class="alt" id="comment-4">
+			<div class="author"><cite><a href="http://www.urbaninfluence.com/" rel="external nofollow" class="url">Nate Miller</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Simple, and elegant. Thank you, sir!</p>
+ 
+            </div>           
+			<p class="meta">5:37 pm / March 14th, 2008</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-110">
+			<div class="author"><cite>KnuckIfYouBuck</cite> said…</div>
+			            <div class="entry-text">
+				<p>Perfect, this is exactly what I was looking for.</p>
+ 
+            </div>           
+			<p class="meta">7:16 pm / October 27th, 2008</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-111">
+			<div class="author"><cite>Alo?</cite> said…</div>
+			            <div class="entry-text">
+				<p>Is there a way to see the traces from Flash in the Net tab with the other requests?</p>
+ 
+            </div>           
+			<p class="meta">8:04 pm / October 27th, 2008</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-112">
+			<div class="author"><cite><a href="http://findsubstance.com/" rel="external nofollow" class="url">David Lowe-Rogstad</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Alo,</p>
+<p>As far as I know, there isn’t a way to write to the Net tab. That tab is logging all network events and a trace on the client side .swf shouldn’t be wrapped into that sort of information.</p>
+<p>If you could give us a better idea of what you are trying to do, or why you’d want to do that, we can see if there’s a solution.</p>
+ 
+            </div>           
+			<p class="meta">9:58 pm / October 27th, 2008</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-211">
+			<div class="author"><cite><a href="http://www.v-i-a.net/" rel="external nofollow" class="url">erixtekila</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Simple but slow, limited to 40 kb buffer and reinventing the wheel :<br>
+<a href="http://code.google.com/p/flash-thunderbolt/" rel="nofollow">http://code.google.com/p/flash-thunderbolt/</a></p>
+<p>HTH</p>
+ 
+            </div>           
+			<p class="meta">4:41 pm / December 17th, 2008</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-248">
+			<div class="author"><cite><a href="http://ideasponge.com/" rel="external nofollow" class="url">Glenn Barres</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Who cares if it is reinventing the wheel.  At least with this you don;t need to install or add some new component.</p>
+<p>If everyone thought that since a wheel has already been made, no need to rethink it, we would not have computers that keep getting faster, cars that get better mileage, or different flavored pizza’s.</p>
+<p>Think outside the box erixtekila</p>
+ 
+            </div>           
+			<p class="meta">8:27 am / April 30th, 2009</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-251">
+			<div class="author"><cite>Joshua</cite> said…</div>
+			            <div class="entry-text">
+				<p>If you use the latest version of firebug be aware you need to ping the console directly from javascript before your SWF’s can do so…</p>
+<p><a href="http://code.google.com/p/fbug/issues/detail?id=1494" rel="nofollow">http://code.google.com/p/fbug/issues/detail?id=1494</a></p>
+ 
+            </div>           
+			<p class="meta">9:40 am / May 12th, 2009</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1035">
+			<div class="author"><cite>hamish</cite> said…</div>
+			            <div class="entry-text">
+				<p>Following up from Joshua, you must have a script tag in your page even if you don’t have any javascript or it does not work</p>
+ 
+            </div>           
+			<p class="meta">3:11 am / October 1st, 2009</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1076">
+			<div class="author"><cite><a href="http://blog.coca-design.com/pokrocila-prace-s-firebugem" rel="external nofollow" class="url">Pokročilá práce s Firebugem | Martin Yarcheeck</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>[...] s konzolí podrobně  Firebug a Flash  Oficiální [...]</p>
+ 
+            </div>           
+			<p class="meta">3:49 pm / January 4th, 2010</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1088">
+			<div class="author"><cite><a href="http://061375.com/" rel="external nofollow" class="url">jeremy</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Older versions of Flash<br>
+getURL(“javascript:console.debug(‘myVar’,myVar)”);</p>
+ 
+            </div>           
+			<p class="meta">8:31 am / May 31st, 2010</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1089">
+			<div class="author"><cite><a href="http://findsubstance.com/" rel="external nofollow" class="url">David Lowe-Rogstad</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Jeremy,</p>
+<p>While that works, ExternalInterface is available for AS1+, Flash Player 8+</p>
+<p>It should be the rare case that you’d need to use getURL any more, but good to know.</p>
+ 
+            </div>           
+			<p class="meta">12:02 pm / June 1st, 2010</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1094">
+			<div class="author"><cite><a href="http://www.jorshasaur.com/" rel="external nofollow" class="url">Jorshasaur</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Pretty slick, thanks for posting!</p>
+ 
+            </div>           
+			<p class="meta">7:28 am / July 21st, 2010</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1095">
+			<div class="author"><cite><a href="http://www.o-minds.com/" rel="external nofollow" class="url">Ashraf Amayreh</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Try out FlashFirebug extension. It allows trace outputs and Firebug-like capabilities inside Flash</p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/161670/" rel="nofollow">https://addons.mozilla.org/en-US/firefox/addon/161670/</a></p>
+ 
+            </div>           
+			<p class="meta">2:14 pm / July 25th, 2010</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1096">
+			<div class="author"><cite>Admin</cite> said…</div>
+			            <div class="entry-text">
+				<p>Thanks for adding this. We will definitely check it out.</p>
+ 
+            </div>           
+			<p class="meta">9:13 am / July 26th, 2010</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1103">
+			<div class="author"><cite><a href="http://5to10media.com/" rel="external nofollow" class="url">Bryce Pelletier</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Finally, I knew there was a way. I had seen it done before. Thanks for posting this, extremely helpful. Guessing and troubleshooting do not mix.</p>
+<p>Cheers</p>
+ 
+            </div>           
+			<p class="meta">12:49 pm / October 11th, 2010</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1111">
+			<div class="author"><cite>varun</cite> said…</div>
+			            <div class="entry-text">
+				<p>This is definitely very helpful. I have a question…<br>
+How can we see the value of object  in JSON format with children and values. First time a saw the value in JSON format but after that it was printing like [Object MyClass].</p>
+<p>Thanks</p>
+ 
+            </div>           
+			<p class="meta">11:51 am / April 20th, 2011</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1114">
+			<div class="author"><cite><a href="http://findsubstance.com/" rel="external nofollow" class="url">David Lowe-Rogstad</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Varun,</p>
+<p>The log window is just a text output, so it will output the value of whatever you are passing to the log file. You might try casting the class as a string String ( myObject ); or myObject.toString(); but if you want to dig into JSON value pairs you might have to write those internally to a string object then trace that.</p>
+<p>Something like this should be close;</p>
+<p>//where ‘myObject’ is the instance of the class I’m trying to trace;<br>
+var tracevar : String = ‘Value is: ‘;<br>
+for each ( var n : Object in myObject )<br>
+{<br>
+   var val : String += ( n + ‘ is: ‘ myObject[n]);<br>
+   tracevar +=  ( val + ‘\n’);   //force a new line each loop;<br>
+}</p>
+ 
+            </div>           
+			<p class="meta">12:05 pm / May 24th, 2011</p>
+		</li>
+
+	
+	
+		<li class="" id="comment-1117">
+			<div class="author"><cite><a href="http://www.o-minds.com/" rel="external nofollow" class="url">Ashraf Amayreh</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>Check out the all new FlashFirebug 3.0</p>
+<p>1. Greatly improved performance.<br>
+2. Added 3D Transformation tools.<br>
+3. Inspect inside Flash files.<br>
+4. Added a console feature for Pro users.<br>
+5. And much more :)</p>
+<p>Here’s FlashFirebug’s homepage:</p>
+<p><a href="http://www.o-minds.com/products/flashfirebug" rel="nofollow">http://www.o-minds.com/products/flashfirebug</a></p>
+ 
+            </div>           
+			<p class="meta">12:09 am / July 1st, 2011</p>
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1118">
+			<div class="author"><cite><a href="http://fprieto.es/webdeveloper" rel="external nofollow" class="url">fer</a></cite> said…</div>
+			            <div class="entry-text">
+				<p>It works!!! Thank you!!</p>
+ 
+            </div>           
+			<p class="meta">3:57 am / July 1st, 2011</p>
+		</li>
+
+	
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond" class="comments toggler">Have a comment?</h3>
+
+
+<form action="http://labs.findsubstance.com/wp-comments-post.php" method="post" id="commentform" class="stretcher" style="visibility: visible; padding-top: 0px; border-top-style: none; padding-bottom: 0px; border-bottom-style: none; overflow: hidden; height: 0px;">
+<fieldset>
+
+    <div class="field">
+        <label for="author">Name:</label>
+        <div class="input">
+            <input type="text" name="author" id="author" value="" class="text">
+        </div>
+    </div>
+    <div class="field">
+        <label for="email">E-mail:</label>
+        <div class="input">
+            <input type="text" name="email" id="email" value="" class="text">
+        </div>
+    </div>
+    <div class="field">
+        <label for="url">Website:</label>
+        <div class="input">
+            <input type="text" name="url" id="url" value="" class="text">
+        </div>
+    </div>
+    
+    <div class="field">
+        <label for="comment">Comment:</label>
+        <div class="input">
+            <textarea name="comment" id="comment" cols="60" rows="10"></textarea>
+        </div>
+    </div>
+</fieldset>
+<div class="submit">
+    <input name="submit" type="submit" id="submit" value="Add My Comment">
+    <input type="hidden" name="comment_post_ID" value="3">
+	<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e3fbb3c8dc"></p></div>
+</form>
+
+</div>
+			<div class="pagination">
+				<div class="prev"></div>
+				<div class="next"><a href="http://labs.findsubstance.com/2008/03/03/logobama-08/" rel="next">Logobama ’08</a></div>
+			</div>
+				</div>
+		<div id="sub">
+	<div class="sec">
+	<h3>— <em>search</em> Labs —</h3>
+	<form method="get" class="searchform" action="http://labs.findsubstance.com/">
+		<div><input type="text" value="" name="s" id="s" class="text">
+		<input type="image" value="Search" alt="Search" title="Search" src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/search.png" class="btn"></div>
+	</form>
+</div>	<div class="sec">
+		<h3>— <em>older</em> Thoughts —</h3>
+		<ul>
+				<li><a href="http://labs.findsubstance.com/2011/07/" title="July 2011">July 2011</a></li>
+	<li><a href="http://labs.findsubstance.com/2011/05/" title="May 2011">May 2011</a></li>
+	<li><a href="http://labs.findsubstance.com/2009/09/" title="September 2009">September 2009</a></li>
+	<li><a href="http://labs.findsubstance.com/2009/05/" title="May 2009">May 2009</a></li>
+	<li><a href="http://labs.findsubstance.com/2009/03/" title="March 2009">March 2009</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/10/" title="October 2008">October 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/07/" title="July 2008">July 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/06/" title="June 2008">June 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/05/" title="May 2008">May 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/04/" title="April 2008">April 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/03/" title="March 2008">March 2008</a></li>
+	<li><a href="http://labs.findsubstance.com/2008/02/" title="February 2008">February 2008</a></li>
+		</ul>
+	</div>		
+	</div>        
+	</div>
+	<div class="clear"></div>
+    <div id="footer" class="vcard">
+    	<p class="info"><a class="email" href="mailto:labs@findsubstance.com">labs@findsubstance.com</a> / <span class="tel">503-445-0482</span> /  <span class="adr"><span class="street-address">1551 SE Poplar Avenue</span> + <span class="locality">Portland</span>, <span class="region">Oregon</span> + <span class="postal-code">97214</span></span></p>
+        <div class="wrap">
+        <div class="subscribe">
+        	<a href="http://labs.findsubstance.com/feed/" class="feed">Subscribe to Substance Labs</a>
+        </div>
+        <a href="http://findsubstance.com/" title="Find Substance" class="home">Home</a>
+        <p class="copyright">© <span class="fn org">Substance Inc</span> / <em> The passionate voice of <strong>digital brand strategy</strong> and <strong>creative experiences.</strong></em></p>
+        <!-- q: 11 | c: 5 | m: 23.05 | t: 0.342 -->        </div>
+    </div>
+</div>
+	    <script type="text/javascript" src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/init.js"></script>
+	<script src="./Firebug’s Console Log, Flash debugging made easy - Substance Labs_files/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	_uacct = "UA-3363492-1";
+	urchinTracker();
+	</script>
+
+
+<!-- Dynamic page generated in 0.332 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2012-09-29 13:13:49 -->
+<!-- Compression = gzip --></body></html>
