@@ -9,9 +9,9 @@
   <dt><strong><%= model_class.human_attribute_name(:quarto) %>:</strong></dt>
   <dd><%= @checkout.quarto %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dataEntrada) %>:</strong></dt>
-  <dd><%= @checkout.dataEntrada %></dd>
+  <dd><%=l @checkout.dataEntrada, :format => :short %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dataSaida) %>:</strong></dt>
-  <dd><%= @checkout.dataSaida %></dd>
+  <dd><%=l @checkout.dataSaida, :format => :short %></dd>
   <dt><strong><%= model_class.human_attribute_name(:tipoPagamento) %>:</strong></dt>
   <dd><%= @checkout.tipoPagamento %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor_total) %>:</strong></dt>
