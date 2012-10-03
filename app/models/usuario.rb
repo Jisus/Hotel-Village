@@ -8,7 +8,7 @@ class Usuario < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
   :nome, :senha, :sobrenome, :tipo, :email
   
-  validates_presence_of :email, :nome, :sobrenome, :email
+  validates_presence_of :nome, :sobrenome
   
   def self.search(search)
     if search
