@@ -6,6 +6,8 @@ class Reserva < ActiveRecord::Base
   
   has_one :Checkout
   
+  validates_associated :Cliente, :Quarto
+  
   attr_accessible :DataEntrada, :DataPagamento, :DataSaida, :Pagamento, :Cliente_id, :Quarto_id, :Quarto
   
   validates_presence_of :DataEntrada, :DataSaida
