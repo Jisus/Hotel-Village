@@ -57,6 +57,9 @@ class ReservasController < ApplicationController
       
       respond_to do |format|
         if @reserva.save
+          
+          DefaultMailer.confirma_reserva(@reserva).deliver
+          
           format.html { render :layout => "login" }
           format.json { render json: @reserva, status: :created, location: @reserva }
         else

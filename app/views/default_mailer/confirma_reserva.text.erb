@@ -1,0 +1,21 @@
+Olá <%= @reserva.Cliente.nome %>,
+
+Sua Reserva foi confirmada com sucesso! Estamos lhe aguardando.
+
+Segue os dados de sua Reserva:
+
+Seus dados:
+Nome: <%= @reserva.Cliente.nome_completo %>
+Telefones: <%= @reserva.Cliente.telefone %>, <%= @reserva.Cliente.celular %>
+
+Dados da Reserva:
+Data de Entrada: <%=l @reserva.DataEntrada.to_datetime %>
+Data de Saida: <%=l @reserva.DataSaida.to_datetime %>
+Valor da Diaria: <%= @reserva.Quarto.diaria.real_formatado %>
+Quantidade de Diarias: <%= @reserva.diarias %>
+
+Valor Total da Reserva: <%= @reserva.valor_diarias.real_formatado %>
+Valor pago: <%= (@reserva.valor_diarias/2).real_formatado %>
+
+Atenciosamente,
+Diretoria Hotel Classica
