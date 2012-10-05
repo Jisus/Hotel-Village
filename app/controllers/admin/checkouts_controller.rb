@@ -44,7 +44,7 @@ class Admin::CheckoutsController < Admin::ApplicationController
 
     respond_to do |format|
       if @checkout.save
-        format.html { redirect_to [:admin, @checkout], notice: 'Checkout was successfully created.' }
+        format.html { redirect_to [:admin, @checkout], notice: 'Checkout efetuado com sucesso!' }
         format.json { render json: @checkout, status: :created, location: @checkout }
       else
         format.html { render action: "new" }

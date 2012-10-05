@@ -45,7 +45,7 @@ class Admin::FlagsController < Admin::ApplicationController
 
     respond_to do |format|
       if @flag.save
-        format.html { redirect_to [:admin,@flag], notice: 'Flag was successfully created.' }
+        format.html { redirect_to [:admin,@flag], notice: 'Flag criado com sucesso!' }
         format.json { render json: @flag, status: :created, location: @flag }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class Admin::FlagsController < Admin::ApplicationController
 
     respond_to do |format|
       if @flag.update_attributes(params[:flag])
-        format.html { redirect_to [:admin,@flag], notice: 'Flag was successfully updated.' }
+        format.html { redirect_to [:admin,@flag], notice: 'Flag atualizado com sucesso!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

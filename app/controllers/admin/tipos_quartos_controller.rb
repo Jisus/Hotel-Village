@@ -44,7 +44,7 @@ class Admin::TiposQuartosController < Admin::ApplicationController
 
     respond_to do |format|
       if @tipos_quarto.save
-        format.html { redirect_to [:admin, @tipos_quarto], notice: 'Tipos quarto was successfully created.' }
+        format.html { redirect_to [:admin, @tipos_quarto], notice: 'Tipo de quarto criado com sucesso!' }
         format.json { render json: @tipos_quarto, status: :created, location: @tipos_quarto }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::TiposQuartosController < Admin::ApplicationController
 
     respond_to do |format|
       if @tipos_quarto.update_attributes(params[:tipos_quarto])
-        format.html { redirect_to [:admin, @tipos_quarto], notice: 'Tipos quarto was successfully updated.' }
+        format.html { redirect_to [:admin, @tipos_quarto], notice: 'Tipo de quarto atualizado com sucesso!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
