@@ -239,7 +239,7 @@ pt-BR:
       reserva:
         DataEntrada: "Data de Entrada"
         DataSaida: "Data de Saída"
-        Pagamento: "Tipo de Pagamento"
+        Pagamento: "Status Pagamento"
         valor_total: "Valor Total"
         created_at: "Criada em:"
       produto:
