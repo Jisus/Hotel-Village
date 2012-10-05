@@ -80,4 +80,8 @@ class Admin::CheckoutsController < Admin::ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def imprimir
+    @checkout = Checkout.find(params[:id])
+  end
 end

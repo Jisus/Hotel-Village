@@ -13,7 +13,11 @@ Hotel::Application.routes.draw do
 
   namespace :admin do
     resources :produtos
-    resources :checkouts
+    resources :checkouts do
+      member do
+        get :imprimir
+      end
+    end
     resources :clientes
     resources :usuarios
     resources :flags

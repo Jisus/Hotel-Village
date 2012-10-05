@@ -14,4 +14,17 @@ class Checkout < ActiveRecord::Base
       dataSaida > dataEntrada
   end
   
+  def diarias
+    diarias = self.dataEntrada.time.hour < 12 ? 1 : 0
+    diarias = diarias + (self.dataSaida.to_date - self.dataEntrada.to_date).to_i
+    diarias = self.dataSaida.time.hour > 12 ? diarias + 1 : diarias
+    diarias
+  end
+  
+  def valor_diarias
+    diarias = self.diarias
+    valor = self.Quarto.diaria * diarias
+    valor
+  end
+  
 end
