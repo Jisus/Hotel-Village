@@ -1,0 +1,57 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+
+
+
+*/
+
+
+/* css for timepicker */
+
+.ui-datepicker { margin-top: 50px; width: 21em !important }
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+/* dashboard */
+.summary {display:table; width:100%; padding:0; margin:0 0 20px 0;}
+.summary ul {margin:0; padding:0; overflow:hidden; display:table-row;}
+.summary li {margin:0; padding:19px; display:table-cell; border-right:1px solid #eee;}
+.summary li:last-child {border:none;}
+.summary a {display:block; font-size:1.2em; line-height:1.4em; text-transform:uppercase; color:#000;}
+.summary .count {display:block; font-size:1.75em; font-weight:bold;}
+
+/* dashboard - ie fixes */
+.ie7 .summary {display:block;}
+.ie7 .summary ul {margin:0; padding:0; overflow:hidden; display:block;}
+.ie7 .summary li {float:left;}
+	
+.ielt9 .summary .last {border:none;}
+
+cufon{text-indent:0!important;}@media screen,projection{cufon{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}cufon cufontext{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;text-align:left!important;text-indent:-10000in!important;}cufon canvas{position:relative!important;}cufonshy.cufon-shy-disabled,.cufon-viewport-resizing cufonshy{display:none!important;}cufonglue{white-space:nowrap!important;display:inline-block!important;}.cufon-viewport-resizing cufonglue{white-space:normal!important;}}@media print{cufon{padding:0!important;}cufon canvas{display:none!important;}}
+
+.quartos{display:table; margin-bottom: 20px}
+.quarto{float:left; margin: 0 5px 5px; position:relative;border: 1px solid #EEE;}
+.quarto .bg{position: absolute;background: white;height: 70px;width: 100%;opacity: 0.9;bottom: 0;}
+.quarto:hover .bg{background: lightYellow}
+.quarto .id{position: absolute;color: #333;left: 20px;bottom: 39px;font-size: 16px;font-weight: bold;}
+.quarto .tipo{position: absolute;color: #333;right: 25px;bottom: 40px;font-size: 12px;}
+.quarto .diaria{position: absolute;color: brown;right: 25px;bottom: 18px;font-size: 12px;}
+.quarto .flags{position: absolute;color: #333;left: 21px;bottom: 18px;font-size: 11px;}
+
+.dl-horizontal dd {
+	height:20px; display:table;
+}
+
+.error {	border: 2px solid brown;	padding: 10px;	color: red;}

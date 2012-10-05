@@ -10,14 +10,14 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui
-//= require jquery-ui-timepicker-addon
-//= require i18n/jquery.ui.datepicker-pt-BR
-//= require jquery.maskedinput-1.3.min
-//= require twitter/bootstrap
-//= require_tree .
+
+
+
+
+
+
+
+
 
 
 jQuery(function($){
@@ -56,15 +56,10 @@ jQuery(function($){
 });
 
 function reservaShow(dataEntrada, dataSaida){
-	var dataEntradaO = $("#dataEntrada").datepicker("getDate");
-	var dataSaidaO = $("#dataSaida").datepicker("getDate");
-	
 	if(dataEntrada == ''){
 		alert("Você precisa selecionar uma data de Entrada")
 	} else if (dataSaida == ''){
 		alert("Você precisa selecionar uma data de Saida")
-	} else if (dataEntradaO > dataSaidaO){
-		alert("Sua data de saida tem que ser maior que a de entrada.")
 	} else {
 		window.location = "/reservas/show/"+encodeURIComponent(dataEntrada)+"/"+encodeURIComponent(dataSaida);
 	}
@@ -83,3 +78,4 @@ function carregaEndereco(input) {
 		console.log(data);
 	});
 }  
+;

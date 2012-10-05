@@ -6,4 +6,12 @@ class Checkout < ActiveRecord::Base
   
   validates_presence_of :cliente, :dataEntrada, :dataSaida, :quarto, :tipoPagamento, :valor_total
   
+  validates :dataSaida, :presence => true, :if => :checkout_valido?
+  
+  usar_como_dinheiro :valor_total
+  
+  def checkout_valido?
+      dataSaida > dataEntrada
+  end
+  
 end

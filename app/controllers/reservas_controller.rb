@@ -39,17 +39,38 @@ class ReservasController < ApplicationController
 
       respond_to do |format|
         if @reserva.save
-          format.html { redirect_to :action => "sucesso", notice: 'Reserva adicionada com sucesso.' }
+          format.html { redirect_to :action => "pagamento", :id => @reserva.id }
           format.json { render json: @reserva, status: :created, location: @reserva }
         else
-          format.html { redirect_to :action => "nova", notice: 'Reserva adicionada com sucesso.' }
+          format.html { render json: @reserva.errors, notice: 'Ocorreu algum erro ao salvar esta reserva.' }
           format.json { render json: @reserva.errors, status: :unprocessable_entity }
         end
       end
     end
   
-    def sucesso
+    def confirma
+      @reserva = Reserva.find(params[:id])
+            
+      if @reserva.Pagamento == nil
+        @reserva.Pagamento = "50% pagos"
+      end
+      
+      respond_to do |format|
+        if @reserva.save
+          format.html { render :layout => "login" }
+          format.json { render json: @reserva, status: :created, location: @reserva }
+        else
+          format.html { render json: @reserva.errors, notice: 'Ocorreu algum erro ao salvar esta reserva.' }
+          format.json { render json: @reserva.errors, status: :unprocessable_entity }
+        end
+      end
+      
+    end
     
+    def pagamento
+      @reserva = Reserva.find(params[:id])
+      
+      render :layout => "login"
     end
   
   end

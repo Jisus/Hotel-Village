@@ -1,0 +1,6 @@
+<center>
+	<h2>Para sua reserva ser concluida voce deve pagar 50% do valor.</h2>
+	<h3>No total de <%= (@reserva.valor_diarias/2).real_formatado %></h3>
+	
+	<%= link_to "Efetuar Pagamento", confirma_reserva_path(@reserva) %>
+</center>

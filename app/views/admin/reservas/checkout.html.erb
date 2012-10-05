@@ -3,6 +3,14 @@
 	<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
+<% if @reserva.DataEntrada > DateTime.now %>
+<div class="alert alert-block">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4>Alerta!</h4>
+  Você só pode fazer o checkout antes da data de entrada, caso seja preciso, altere a data de entrada.
+</div>
+<% end %>
+
 <dl class="dl-horizontal">
 	<dt><strong><%= model_class.human_attribute_name(:Cliente_id) %>:</strong></dt>
 	<dd><%= @reserva.Cliente.nome_completo %></dd>
@@ -90,10 +98,12 @@
 <div class="form-actions">
 	<%= link_to t('.back', :default => t("helpers.links.back")), admin_reservas_path, :class => 'btn'  %>
 	<%= link_to t('.edit', default: t("helpers.links.edit")), edit_admin_reserva_path(@reserva), :class => 'btn' %>
-	
+
+	<% if @reserva.DataEntrada < DateTime.now %>
 	<button type="button" data-toggle="modal" data-target="#addProduto" class="btn btn-success">Adicionar Produto</button>
 	
 	<%= f.submit 'Checkout', :class => 'btn btn-primary' %>
+	<% end %>
 </div>
 
 <% end %>

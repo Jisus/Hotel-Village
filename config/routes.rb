@@ -1,13 +1,15 @@
 Hotel::Application.routes.draw do
   
   root :to => 'pages#index'
-  
+
+  match '/reservas/confirma/:id' => 'reservas#confirma', :as => :confirma_reserva
   match 'admin/' => 'admin/dashboard#index', :as => :admin_home
   match '/reservas/show/:dataEntrada/:dataSaida' => 'reservas#show'
-  match '/reservas/sucesso' => 'reservas#sucesso'
-  match '/reservas/create' => 'reservas#create'
-  match '/reservas/show/:id/:dataEntrada/:dataSaida' => 'reservas#nova', :as => :nova_reserva
+  match '/reservas/create' => 'reservas#create', :as => :create_reserva
+  match '/reservas/nova/:id/:dataEntrada/:dataSaida' => 'reservas#nova', :as => :nova_reserva
   match '/clientes/sucesso' => 'clientes#sucesso', :as => :cliente_sucesso
+
+  resources :quartos
 
   namespace :admin do
     resources :produtos

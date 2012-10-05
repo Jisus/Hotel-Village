@@ -96,18 +96,21 @@ class Admin::ReservasController < Admin::ApplicationController
 
     @reserva = Reserva.find(params[:id])
     @reserva.Checkout = Checkout.new(params[:checkout])
+    
+    @reserva.DataSaida = DateTime.now
+    
     consumos = []
     params[:consumo].each do |v,c|
       consumos.push Consumo.new(c)
     end
     @reserva.Checkout.Consumo = consumos
-
+    
     respond_to do |format|
       if @reserva.save
         format.html { redirect_to [:admin, @reserva.Checkout], notice: 'Checkout was successfully created.' }
         format.json { render json: @reserva.Checkout, status: :created, location: @reserva.Checkout }
       else
-        format.html { render action: "new" }
+        format.html { render action: "checkout_save" }
         format.json { render json: @reserva.Checkout.errors, status: :unprocessable_entity }
       end
     end

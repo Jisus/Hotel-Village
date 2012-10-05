@@ -72,7 +72,7 @@
 								<p>
 									<b>Valor Total da Reserva:</b> <%= @reserva.valor_diarias.real_formatado %> <br/>
 								</p>
-                <%= form_for :reserva, :url => {:action => :create}, :html => { :class => 'form-horizontal' } do |f| %>
+                <%= form_for @reserva, :url => :create_reserva, :html => { :class => 'form-horizontal' } do |f| %>
 								
 								<%= f.hidden_field :DataEntrada, :value => params[:dataEntrada] %>
 								<%= f.hidden_field :DataSaida, :value => params[:dataSaida] %>

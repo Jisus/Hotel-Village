@@ -24,7 +24,7 @@
         <td><%=l checkout.dataEntrada, :format => :short %></td>
         <td><%=l checkout.dataSaida, :format => :short %></td>
         <td><%= checkout.tipoPagamento %></td>
-        <td><%= checkout.valor_total %></td>
+        <td><%= checkout.valor_total.real_formatado %></td>
         <td>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_checkout_path(checkout),

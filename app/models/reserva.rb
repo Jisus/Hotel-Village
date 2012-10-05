@@ -8,7 +8,7 @@ class Reserva < ActiveRecord::Base
   
   attr_accessible :DataEntrada, :DataPagamento, :DataSaida, :Pagamento, :Cliente_id, :Quarto_id, :Quarto
   
-  validates_presence_of :DataEntrada, :DataSaida, :Pagamento
+  validates_presence_of :DataEntrada, :DataSaida
   
   def diarias
     diarias = self.DataEntrada.time.hour < 12 ? 1 : 0
@@ -22,4 +22,5 @@ class Reserva < ActiveRecord::Base
     valor = self.Quarto.diaria * diarias
     valor
   end
+  
 end
