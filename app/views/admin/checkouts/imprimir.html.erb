@@ -1,0 +1,85 @@
+<%- model_class = Checkout -%>
+
+<center>
+	<h1>Recibo</h1>
+</center>
+
+<style>
+ul{
+	list-style: none;
+	padding: 0;
+	display:table;
+	width: 100%;
+}
+li{
+	padding: 5px;
+border: 1px solid black;
+margin: 7px 0px;
+}
+</style>
+
+<ul>
+	<li><strong><%= model_class.human_attribute_name(:cliente) %>:</strong> <%= @checkout.cliente %></li>
+	<li><strong><%= model_class.human_attribute_name(:quarto) %>:</strong> <%= @checkout.quarto %></li>
+	<li><strong><%= model_class.human_attribute_name(:dataEntrada) %>:</strong> <%=l @checkout.dataEntrada, :format => :short %></li>
+	<li><strong><%= model_class.human_attribute_name(:dataSaida) %>:</strong> <%=l @checkout.dataSaida, :format => :short %></li>
+	<li><strong><%= model_class.human_attribute_name(:tipoPagamento) %>:</strong> <%= @checkout.tipoPagamento %></li>
+	<li><strong><%= model_class.human_attribute_name(:valor_total) %>:</strong> <%= @checkout.valor_total.real_formatado %></li>
+</ul>
+<style>
+	table{
+		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+		font-size: 12px;
+		border-collapse: collapse;
+		text-align: left;
+		border-spacing: 0;
+		width: 100%;
+	}
+	td {
+		border: 1px solid black;
+		padding: 6px 8px;
+		vertical-align: top;
+	}
+	th{
+		font-size: 14px;
+		border: 1px solid black;
+		padding: 10px 8px;
+	}
+</style>
+
+<table class="table table-bordered consumo">
+	<thead>
+		<tr>
+			<th style="width: 50px">Quant.</th>
+			<th>Descrição</th>
+			<th style="width: 200px">Valor Unit.</th>
+			<th style="width: 200px">Valor Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @checkout.Consumo.each do |consumo|%>
+		<tr>
+			<td>
+				<%= consumo.qnt %>
+			</td>
+			<td>
+				<%= consumo.desc %>
+			</td>
+			<td>
+				<%= consumo.valor.real_formatado %>
+			</td>
+			<td id="total_0" class="total">
+				<%= (consumo.qnt*consumo.valor).real_formatado %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+	<thead>
+		<tr>
+			<th colspan="3">Valor Total</th>
+			<th id="consumo_total">
+				<%= @checkout.valor_total.real_formatado %>
+			</th>
+		</tr>
+	</thead>
+</table>

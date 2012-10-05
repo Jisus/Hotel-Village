@@ -83,5 +83,6 @@ class Admin::CheckoutsController < Admin::ApplicationController
   
   def imprimir
     @checkout = Checkout.find(params[:id])
+    render :layout => nil
   end
 end

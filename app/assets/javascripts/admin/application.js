@@ -131,4 +131,5 @@ function calcula(){
 		total = total + total_this;
 	});
 	$('#consumo_total').html(accounting.formatMoney(total));
+	$('#checkout_valor_total').val(total);	
 }

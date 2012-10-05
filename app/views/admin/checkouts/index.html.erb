@@ -26,6 +26,8 @@
         <td><%= checkout.tipoPagamento %></td>
         <td><%= checkout.valor_total.real_formatado %></td>
         <td>
+ 				 <%= link_to t('.imprimir', :default => t("helpers.links.imprimir")),
+              imprimir_admin_checkout_path(checkout), :class => 'btn btn-mini btn-primary', :target => "_blank"  %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_checkout_path(checkout),
                       :method => :delete,

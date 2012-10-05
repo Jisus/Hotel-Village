@@ -7,7 +7,7 @@
 <div class="alert alert-block">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <h4>Alerta!</h4>
-  Você só pode fazer o checkout antes da data de entrada, caso seja preciso, altere a data de entrada.
+  Você só pode fazer o checkout em data superior a data de entrada, caso seja preciso, altere a data de entrada.
 </div>
 <% end %>
 
@@ -30,7 +30,6 @@
 <%= f.hidden_field :quarto, :class => 'text_field', :value => @reserva.Quarto.nome %>
 <%= f.hidden_field :dataEntrada, :class => 'text_field', :value => @reserva.DataEntrada %>
 <%= f.hidden_field :dataSaida, :class => 'text_field', :value =>  @reserva.DataSaida %>
-<%= f.hidden_field :tipoPagamento, :class => 'text_field', :value => @reserva.Pagamento %>
 <%= f.hidden_field :valor_total, :class => 'text_field', :value => 200 %>
 
 <table class="table table-bordered consumo">
@@ -93,6 +92,9 @@
     <a href="javascript:void(0)" onclick="addProduto()" class="btn btn-primary">Adicionar</a>
   </div>
 </div>
+
+Pagamento
+<%= select(:checkout, :tipoPagamento, ['Á vista', 'Cartão', 'Cheque']) %>
 
 <div class="form-actions">
 	<%= link_to t('.back', :default => t("helpers.links.back")), admin_reservas_path, :class => 'btn'  %>
