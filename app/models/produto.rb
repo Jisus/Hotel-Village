@@ -5,6 +5,8 @@ class Produto < ActiveRecord::Base
   
   validates_presence_of :nome, :valor
   
+  validates :valor, :numericality => { :greater_than => 0 }
+  
   def self.search(search)
     if search
       find(:all, :conditions => ['nome LIKE :search OR desc LIKE :search OR valor LIKE :search', {:search => "%#{search}%"}])
