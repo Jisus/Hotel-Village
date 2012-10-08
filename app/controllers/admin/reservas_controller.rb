@@ -107,7 +107,7 @@ class Admin::ReservasController < Admin::ApplicationController
     
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to [:admin, @reserva.Checkout], notice: 'Checkout was successfully created.' }
+        format.html { redirect_to [:admin, @reserva.Checkout], notice: 'Checkout efetuado com sucesso!' }
         format.json { render json: @reserva.Checkout, status: :created, location: @reserva.Checkout }
       else
         format.html { render action: "checkout_save" }

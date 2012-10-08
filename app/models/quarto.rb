@@ -11,7 +11,9 @@ class Quarto < ActiveRecord::Base
   
   validates_associated :tipos_quarto
   
-  validates_presence_of :diaria, :imagem
+  validates_presence_of :diaria
+  
+  validates_attachment_presence :imagem
   
   validates :diaria, :numericality => { :greater_than => 0 }
   

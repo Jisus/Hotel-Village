@@ -60,7 +60,7 @@ class Admin::CheckoutsController < Admin::ApplicationController
 
     respond_to do |format|
       if @checkout.update_attributes(params[:checkout])
-        format.html { redirect_to [:admin, @checkout], notice: 'Checkout was successfully updated.' }
+        format.html { redirect_to [:admin, @checkout], notice: 'Checkout atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

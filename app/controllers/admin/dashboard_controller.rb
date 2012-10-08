@@ -6,6 +6,7 @@ class Admin::DashboardController < Admin::ApplicationController
     @t_clientes = Cliente.count
     @t_produtos = Produto.count
     @t_reservas = Reserva.count
+    @t_checkouts = Checkout.count
     @t_reservas_ativas = Reserva.count(:all, :include => :Checkout, :conditions => { :checkouts => {:id => nil}} )
     
     @u_reservas = Reserva.find(:all, :order => "id desc", :limit => 5)
