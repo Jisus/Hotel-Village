@@ -1,3 +1,12 @@
+class ReservaValidate < ActiveModel::Validator
+  def validate(record)
+    if record.DataEntrada > record.DataSaida
+      record.errors[:DataEntrada] << "deve ser menor que a data de Saida"
+      record.errors[:DataSaida] << "deve ser maior que a data de Entrada"
+    end
+  end
+end
+
 class Reserva < ActiveRecord::Base
   
   belongs_to :Cliente
@@ -5,6 +14,8 @@ class Reserva < ActiveRecord::Base
   belongs_to :Quarto
   
   has_one :Checkout
+  
+  validates_with ReservaValidate
   
   validates_associated :Cliente, :Quarto
   
